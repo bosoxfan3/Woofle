@@ -31,15 +31,28 @@ let MOCK_BREED_RESULTS = {
 
 const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
 
+// function getDataFromDogCEOApi(searchTerm) {
+//   let query;
+//   if(searchTerm.indexOf(' ') >= 0) {
+//     let splitTerm = searchTerm.split(' ');
+//     query = `${splitTerm[1]}/${splitTerm[0]}/images`;
+//   } else {
+//     query = `${searchTerm}/images`;
+//   }
+//   $.get(DOG_CEO_BREED_URL+query, {}, function(data) {
+//     showDogImages(data);
+//   });
+// }
+
 function getDataFromDogCEOApi(searchTerm) {
   let query;
-  if(searchTerm.indexOf(' ') >= 0) {
-    let splitTerm = searchTerm.split(' ');
-    query = `${splitTerm[1]}/${splitTerm[0]}/images`;
-  } else {
-    query = `${searchTerm}/images`;
-  }
-  $.get(DOG_CEO_BREED_URL+query, {}, function(data) {
+  // if(searchTerm.indexOf(' ') >= 0) {
+  //   let splitTerm = searchTerm.split(' ');
+  //   query = `${splitTerm[1]}/${splitTerm[0]}/images`;
+  // } else {
+    query = `${searchTerm.replace(' ', '_')}`;
+  // }
+  $.get('/breeds/'+query, {}, function(data) {
     showDogImages(data);
   });
 }
