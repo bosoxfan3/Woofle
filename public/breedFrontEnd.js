@@ -49,6 +49,23 @@ function showYouTubeResults(result) {
 const resultDog = window.location.pathname.replace('/breeds/breedPage/', '');
 console.log(resultDog);
 
+$('h1 span').html(resultDog.toUpperCase());
+
 getDataFromDogCEOApi(resultDog);
 getDataFromYouTubeApi(resultDog);
 $('#breedSearch').val('');
+
+$('.js-add-to-favorites-button').click(event => {
+  console.log('button clicked');
+  $.ajax({
+    url: '/favorites/Daniel',
+    method: 'POST',
+    data: {breed: resultDog}
+  })
+    .done(function (done) {
+      console.log(done);
+    })
+    .fail(function (fail) {
+      console.log(fail);
+    });
+});

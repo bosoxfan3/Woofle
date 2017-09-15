@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var User = require('../models');
+
 
 const favorites = {};
 
@@ -9,7 +11,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
+  res.send(req.body);
   
+  // if signed in user, then add to that users favorites.
 });
 
 module.exports = router;
