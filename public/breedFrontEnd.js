@@ -1,12 +1,15 @@
+const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
+
 function getDataFromDogCEOApi(searchTerm) {
   let query;
   if(searchTerm.indexOf(' ') >= 0) {
     let splitTerm = searchTerm.split(' ');
     query = `${splitTerm[1]}/${splitTerm[0]}/images`;
   } else {
-  query = `${searchTerm.replace(' ', '_')}`;
+    query = `${searchTerm}/images`;
   }
-  $.get('/breeds/'+query, {}, function(data) {
+  $.getJSON(DOG_CEO_BREED_URL+query, {}, function(data) {
+    console.log(data);
     showDogImages(data);
   });
 }
@@ -21,7 +24,7 @@ function showDogImages(result) {
 
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
-const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
+
 
 function getDataFromYouTubeApi(searchTerm) {
   const query = {
@@ -47,7 +50,6 @@ function showYouTubeResults(result) {
 }
 
 const resultDog = window.location.pathname.replace('/breeds/breedPage/', '');
-console.log(resultDog);
 
 $('h1 span').html(resultDog.toUpperCase());
 
