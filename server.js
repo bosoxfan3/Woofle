@@ -16,9 +16,11 @@ app.use(express.static('public', {
 }));
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 var favorites = require('./routes/favorites');
 var breeds = require('./routes/breeds');
+
+const authRoutes = require('./server/auth/auth.route')
+const userRoutes = require('./server/user/user.route');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -28,7 +30,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/auth', authRoutes)
+app.use('/users', userRoutes);
 app.use('/favorites', favorites);
 app.use('/breeds', breeds);
 

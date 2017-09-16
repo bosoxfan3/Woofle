@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var User = require('../models');
+var User = require('../server/user/user.model')
 
 
 const favorites = {};
