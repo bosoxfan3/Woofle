@@ -10,9 +10,11 @@ router.get('/', function(req, res, next) {
   res.send(favorites);
 });
 
-router.post('/', function(req, res, next) {
-  res.send(req.body);
-  
+router.post('/:id', function(req, res, next) {
+  //res.send(req.body);
+  User
+    .findOneAndUpdate({_id: req.params.id}, {favorites: {$push: req.body.breed}})
+    
   // if signed in user, then add to that users favorites.
 });
 

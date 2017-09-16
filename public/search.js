@@ -6,7 +6,6 @@ $('.js-search-button').click(function(event) {
   })
     .done(function (done) {
       window.location.href = done.url;
-      //window.location.href = done.url;
     })
     .fail(function (fail) {
       console.log(fail);
