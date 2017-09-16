@@ -32,11 +32,13 @@ function login(req, res, next) {
   User.get(email, password)
     .then((user) => {
       const token = jwt.sign({
-        email: user.email
+        email: user.email,
+        id: user.id
       }, config.JWT_SECRET_KEY)
       return res.json({
         email,
-        token
+        token,
+        id: user.id
       })
     })
     .catch(err => {

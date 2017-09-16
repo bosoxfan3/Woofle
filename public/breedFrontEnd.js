@@ -1,5 +1,4 @@
-// Frontend API calls for DogCEO and YouTube
-const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
+
 
 function getDataFromDogCEOApi(searchTerm) {
   let query;

@@ -17,10 +17,11 @@ app.use(express.static('public', {
 
 var index = require('./routes/index');
 var favorites = require('./routes/favorites');
-var breeds = require('./routes/breeds');
+// var breeds = require('./routes/breeds');
 
 const authRoutes = require('./server/auth/auth.route')
 const userRoutes = require('./server/user/user.route');
+// const breedRoutes = require('./server/breed/breed.route')
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -33,7 +34,8 @@ app.use('/', index);
 app.use('/auth', authRoutes)
 app.use('/users', userRoutes);
 app.use('/favorites', favorites);
-app.use('/breeds', breeds);
+// app.use('/breeds', breeds);
+// app.use('/breeds2', breedRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -44,6 +46,7 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  console.log(err)
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

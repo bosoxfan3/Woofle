@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = mongoose.Schema({
-  email: {type: String, required: true},
+  email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   favorites: [String],
 });
@@ -33,6 +33,21 @@ userSchema.statics = {
     return this.findOne({
       email
     })
+      .exec()
+      .then((user) => {
+        if (user) {
+          return user;
+        }
+        const err = new Error('user does not exist');
+        return Promise.reject(err);
+      });
+  },
+
+  /**
+   * Get user by id
+   */
+  getById(userId) {
+    return this.findById(userId)
       .exec()
       .then((user) => {
         if (user) {
