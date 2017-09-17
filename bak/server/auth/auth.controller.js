@@ -22,7 +22,10 @@ function signup(req, res, next) {
       email: req.body.email,
       password: req.body.password
     })
-    .then(user => res.redirect('/auth/login'))
+    .then(
+      user => res.status(201).json({
+        user: user
+      }))
     .catch(err => {
       if (err.code == 11000) {
         // Duplicate key error, already exists

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Woofle</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+
+<body>
+  <div class="js-login-page">
+    <h1>Woofle</h1>
+    <h4>Find information, pictures, and videos about dog breeds</h4>
+    <div class="form">
+      <form role="form" action="/auth/login" accept-charset="UTF-8" method="post" class="signup-form">
+        <fieldset>
+          <legend>Sign up</legend>
+          <label for="user-email">Email</label>
+          <input type="email" placeholder="foo@bar.com" name="email" id="email" required/>
+          <label for="user-password">Password</label>
+          <input placeholder="1234passw0rd" type="password" name="password" id="password" required/>
+          <button type="submit" class="js-sign-up-button">Log in</button>
+        </fieldset>
+      </form>
+      <footer role="contentinfo" class="footer">
+        <p>Don't have an account? <a href="/auth/signup" class="js-sign-up">Sign Up</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/app.js"></script>
+  <script src="/account.js"></script>
+</body>
+
+</html>
