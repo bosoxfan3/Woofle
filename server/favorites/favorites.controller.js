@@ -4,7 +4,6 @@ const User = require('../user/user.model')
 function all(req, res, next) {
     console.log("FAVORITES.ALL: for " + JSON.stringify(req.user));
 
-    // TODO: load up User
     User.getByEmail(req.user.email)
       .then((user) => {
         res.json(user.favorites)
@@ -13,7 +12,6 @@ function all(req, res, next) {
         console.error(err);
         res.status(500).json({message: 'Internal server error'});
       });
-    res.json(favorites);
 }
 
 //router.route('/favorites/:breedName')

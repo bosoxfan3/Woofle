@@ -52,7 +52,6 @@ app.use('/search', function(req, res, next) {
   res.sendFile(path.resolve('public/breedSearch.html'));
 });
 
-
 // Middleware to log each request and cookies. Useful while we develop.
 app.use(function(req, res, next) {
   console.log("Handling request: " + req.url);
@@ -67,7 +66,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-// If we're about to 40, redirect to the login page
+// If we're about to 401, redirect to the login page
 app.use(function(err, req, res, next) {
   if(401 == err.status) {
       res.redirect('/auth/login')
