@@ -1,4 +1,4 @@
-
+const DOG_CEO_BREED_URL="https://dog.ceo/api/breed/";
 
 function getDataFromDogCEOApi(searchTerm) {
   let query;
@@ -64,7 +64,7 @@ getDataFromYouTubeApi(resultDog);
 $('.js-add-to-favorites-button').click(event => {
   console.log('button clicked');
   $.ajax({
-    url: '/favorites/:_id',
+    url: '/api/favorites/' + resultDog,
     method: 'POST',
     data: {breed: resultDog}
   })
