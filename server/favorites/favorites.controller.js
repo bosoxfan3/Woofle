@@ -51,8 +51,14 @@ function deleteFavorite(req, res, next) {
     });
 }
 
+function newFunction (req, res, next) {
+  res.send('hello');
+  //res.sendFile(path.resolve('public/favorites.html'));
+}
+
 module.exports = {
   all,
   addFavorite,
   deleteFavorite,
+  newFunction
 };

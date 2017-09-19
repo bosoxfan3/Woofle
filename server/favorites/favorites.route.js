@@ -13,4 +13,7 @@ router.route('/:breedName')
   .post(favoritesController.addFavorite)
   .delete(favoritesController.deleteFavorite);
 
+router.route('/')
+  .get(favoritesController.newFunction);
+
 module.exports = router;

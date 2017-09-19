@@ -14,7 +14,18 @@ $('.js-search-button').click(function(event) {
 });
 
 $('.js-view-favorites-button').click(function(event) {
-  window.location.href = 'favorites';
+  $.ajax({
+    url: '/api/favorites/',
+    method: 'GET'
+  })
+    .done(function (done) {
+      console.log(done);
+      //window.location.href = done
+      //window.location.href = 'favorites';
+    })
+    .fail(function (fail) {
+      console.log(fail);
+    });
 });
 
 
