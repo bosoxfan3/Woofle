@@ -6,12 +6,12 @@ function drawFavoritesList(favorites) {
   let html = '';
   $.each(favorites, function (index, value) {
     console.log("value: " + value);
-     html += '<p>';
-     html += '<a href="/breeds/' + value + '">' + value + "</a>";
-     html += '<button type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
-     //  html += '<button type="button" onclick="alert("foo");">Remove Favorite</button>';
-     html += '</p>';
-   });
+    html += '<p>';
+    html += '<a href="/breeds/' + value + '">' + value + "</a>";
+    html += '<button type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
+    //  html += '<button type="button" onclick="alert("foo");">Remove Favorite</button>';
+    html += '</p>';
+  });
 
   $('.js-favorites-div').html(html);
 }
@@ -19,11 +19,11 @@ function drawFavoritesList(favorites) {
 function doRemoveFavorite(breedName) {
   console.log("DoRemoveFavorite: " + breedName);
   $.ajax({
-      url: '/api/favorites/' + breedName,
-      type: 'DELETE',
-      success: function(favoritesList) {
-          drawFavoritesList(favoritesList);
-      }
+    url: '/api/favorites/' + breedName,
+    type: 'DELETE',
+    success: function(favoritesList) {
+      drawFavoritesList(favoritesList);
+    }
   });
 }
 
@@ -33,32 +33,3 @@ function getFavorites() {
   });
 }
 getFavorites();
-
-// let MOCK_BREED_RESULTS = {
-//   'breedResults': [
-//     {
-//       'breedName': 'Golden Retriever',
-//       'videoID': [
-//         'cyN288Tg2Ms',
-//         'n7-o7eoMaWM'
-//       ],
-//       'wikipediaTitle': 'Golden Retriever',
-//     },
-//     {
-//       'breedName': 'German Shepherd',
-//       'videoID': [
-//         'M-uDiky1EKU',
-//         '4uWVDE5CkLw'
-//       ],
-//       'wikipediaTitle': 'German Shepherd'
-//     },
-//     {
-//       'breedName': 'Beagle',
-//       'videoID': [
-//         'BAf7lcYEXag',
-//         'f9JPDHAEMqs'
-//       ],
-//       'wikipediaTitle': 'Beagle'
-//     }
-//   ]
-// };
