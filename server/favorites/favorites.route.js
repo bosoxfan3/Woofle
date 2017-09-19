@@ -11,6 +11,6 @@ router.route('/all')
 
 router.route('/:breedName')
   .post(favoritesController.addFavorite)
-  .delete(favoritesController.deleteFavorite)
+  .delete(favoritesController.deleteFavorite);
 
 module.exports = router;
