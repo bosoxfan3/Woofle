@@ -1,10 +1,12 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+
+const express = require('express');
+const router = express.Router();
 
 const authController = require('./auth.controller');
 
 /**
- * Alow users to signup
+ * Allow users to signup
  */
 router.route('/signup')
   .post(authController.signup)

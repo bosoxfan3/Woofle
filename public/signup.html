@@ -15,10 +15,14 @@
     <h4>Find information, pictures, and videos about dog breeds</h4>
     <div class="form">
       <form role="form" action="/auth/signup" accept-charset="UTF-8" method="post" class="signup-form">
+        <!-- You don't need a jQuery listener for this form because of the
+          action="/auth/signup"-->
         <fieldset>
           <legend>Sign up</legend>
           <label for="user-email">Email</label>
           <input type="email" placeholder="foo@bar.com" name="email" id="user-email" required/>
+          <!-- The name "email" is what is used in authcontroller to verify that a email and 
+            password were submitted as part of the form submission-->
           <label for="user-password">Password</label>
           <input placeholder="1234passw0rd" type="password" name="password" id="user-password" required/>
           <button type="submit" class="js-sign-up-button">Sign up</button>
@@ -31,8 +35,7 @@
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/app.js"></script>
-  <script src="/account.js"></script>
+  <script type="text/javscript" src="/account.js"></script>
 </body>
 
 </html>

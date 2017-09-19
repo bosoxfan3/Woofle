@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var ejwt = require('express-jwt')
+var ejwt = require('express-jwt');
 const mongoose = require('mongoose');
 const {PORT, DATABASE_URL, JWT_SECRET_KEY} = require('./config');
 
@@ -16,9 +16,9 @@ mongoose.Promise=global.Promise;
 //var favorites = require('./routes/favorites');
 // var breeds = require('./routes/breeds');
 
-const authRoutes = require('./server/auth/auth.route')
+const authRoutes = require('./server/auth/auth.route');
 const userRoutes = require('./server/user/user.route');
-const breedRoutes = require('./server/breed/breed.route')
+const breedRoutes = require('./server/breed/breed.route');
 const favoritesRoutes = require('./server/favorites/favorites.route');
 
 // uncomment after placing your favicon in /public
@@ -28,20 +28,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(express.static('public', {
-   extensions: ['html']
-}));
-
 // Authentication middleware provided by express-jwt. If it succeeds, it sets req.user.
 app.use(ejwt({
-   secret: JWT_SECRET_KEY,
-   getToken: function fromHeader (req) {
-       return req.cookies['woofle-token'];
-     },
+  secret: JWT_SECRET_KEY,
+  getToken: function fromHeader (req) {
+    return req.cookies['woofle-token'];
+  },
 
- }).unless({path: ['/auth/login', '/auth/signup']}));
+}).unless({path: ['/auth/login', '/auth/signup']}));
 
-app.use('/auth', authRoutes)
+app.use(express.static('public', {
+  extensions: ['html']
+}));
+
+
+
+app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/breeds', breedRoutes);
 //console.log(favoritesRoutes);
@@ -49,27 +51,27 @@ app.use('/api/favorites', favoritesRoutes);
 
 app.use('/search', function(req, res, next) {
   // Return the main index page content
-  res.sendFile(path.resolve('public/breedSearch.html'));
+  res.sendFile(path.resolve('public/search.html'));
 });
 
 // Middleware to log each request and cookies. Useful while we develop.
 app.use(function(req, res, next) {
-  console.log("Handling request: " + req.url);
-  console.log("Cookies: " + JSON.stringify(req.cookies));
+  console.log('Handling request: ' + req.url);
+  console.log('Cookies: ' + JSON.stringify(req.cookies));
   next();
-})
+});
 
 // Simple middleware so we can see what req.user is on each request while we develop.
 app.use(function(req, res, next) {
   var user = req.user;
-  console.log("current user is: " + JSON.stringify(req.user));
+  console.log('current user is: ' + JSON.stringify(req.user));
   next();
 });
 
 // If we're about to 401, redirect to the login page
 app.use(function(err, req, res, next) {
   if(401 == err.status) {
-      res.redirect('/auth/login')
+    res.redirect('/auth/login');
   }
 });
 

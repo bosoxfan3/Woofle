@@ -33,3 +33,7 @@ function getFavorites() {
   });
 }
 getFavorites();
+
+$('.js-log-out-button').click(function(event) {
+  window.location.href = '/auth/logout';
+});

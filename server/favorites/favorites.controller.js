@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const User = require('../user/user.model');
+const path = require('path');
 
 function all(req, res, next) {
   console.log('FAVORITES.ALL: for ' + JSON.stringify(req.user));
@@ -52,8 +53,7 @@ function deleteFavorite(req, res, next) {
 }
 
 function newFunction (req, res, next) {
-  res.send('hello');
-  //res.sendFile(path.resolve('public/favorites.html'));
+  res.sendFile(path.resolve('public/favorites.html'));
 }
 
 module.exports = {
