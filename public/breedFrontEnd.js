@@ -25,7 +25,7 @@ const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromYouTubeApi(searchTerm) {
   const query = {
-    q: `${searchTerm} dog`,
+    q: `${searchTerm} dog breed`,
     part: 'snippet',
     key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
   };
