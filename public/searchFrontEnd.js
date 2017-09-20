@@ -17,6 +17,10 @@ $('.js-view-favorites-button').click(function(event) {
   window.location.href = 'favorites';
 });
 
+$('.js-log-out-button').click(function(event) {
+  window.location.href = '/auth/logout';
+})
+
 
 
 

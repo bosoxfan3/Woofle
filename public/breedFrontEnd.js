@@ -75,3 +75,11 @@ $('.js-add-to-favorites-button').click(event => {
       console.log(fail);
     });
 });
+
+$('.js-log-out-button').click(function(event) {
+  window.location.href = '/auth/logout';
+});
+
+$('.js-go-to-search-button').click(function(event) {
+  window.location.href = '/search';
+});

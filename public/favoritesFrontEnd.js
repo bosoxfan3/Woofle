@@ -34,6 +34,10 @@ function getFavorites() {
 }
 getFavorites();
 
+$('.js-go-to-search-button').click(function(event) {
+  window.location.href = 'search';
+});
+
 $('.js-log-out-button').click(function(event) {
   window.location.href = '/auth/logout';
 });

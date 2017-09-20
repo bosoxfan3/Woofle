@@ -47,7 +47,7 @@ function signup(req, res, next) {
 }
 
 function showLoginForm(req, res, next) {
-  res.sendFile(path.join(__dirname, '../../public', 'loginForm.html'));
+  res.sendFile(path.join(__dirname, '../../public', 'login.html'));
 }
 
 function login(req, res, next) {
