@@ -1,6 +1,8 @@
+'use strict';
+
 const axios = require('axios');
 
-// Frontend API calls for DogCEO and YouTube
+//Backend API calls for DogCEO so that we only get 5 images
 const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
 
 function getDataFromDogCEOApi(searchTerm) {
@@ -13,7 +15,7 @@ function getDataFromDogCEOApi(searchTerm) {
   }
   return axios.get(DOG_CEO_BREED_URL+query)
     .then((data) => {
-      return data.data
+      return data.data;
     })
     .catch(err => {
       console.log(`Error in fetching images from dog CEO ${err}`)
@@ -23,4 +25,4 @@ function getDataFromDogCEOApi(searchTerm) {
 
 module.exports = {
   getDataFromDogCEOApi
-}
+};

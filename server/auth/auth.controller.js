@@ -43,7 +43,7 @@ function signup(req, res, next) {
         res.redirect('/auth/login');
         return;
       }
-      console.error("Error creating user: " + err);
+      console.error('Error creating user: ' + err);
       res.status(500).json({message: 'Internal server error'});
     });
 }
@@ -56,6 +56,7 @@ function showLoginForm(req, res, next) {
 function login(req, res, next) {
   const { email, password } = req.body;
   User.get(email, password)
+  //can't say that this part makes perfect sense
     .then((user) => {
       const token = jwt.sign({
         email: user.email,
@@ -76,6 +77,7 @@ function logout(req, res, next) {
   req.user = null;
   res.clearCookie('woofle-token');
   res.redirect('/auth/login');
+  //Sets the user to blank, clears the cookie, and resends you to the login page
 }
 
 module.exports = {  showSignupForm, signup, showLoginForm, login, logout };
