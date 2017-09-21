@@ -9,15 +9,16 @@ const authController = require('./auth.controller');
  * Allow users to signup
  */
 router.route('/signup')
-  .post(authController.signup)
-  .get(authController.showSignupForm);
+  .get(authController.showSignupForm)
+  .post(authController.signup);
+  
 
 /**
  * Allow users to login
  */
 router.route('/login')
-  .post(authController.login)
-  .get(authController.showLoginForm);
+  .get(authController.showLoginForm)
+  .post(authController.login);
 
 /**
  * Allow users to logout

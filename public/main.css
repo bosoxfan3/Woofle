@@ -1,0 +1,81 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+  background-color: blue;
+}
+
+body {
+  background-color: #337EE1;
+}
+
+.login-form {
+  width: 400px;
+  height: 500px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+fieldset {
+  border: 0;
+}
+
+.login-form legend {
+  text-align: center;
+  font-size: 24pt;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.login-form label {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 10pt;
+  text-align: left;
+  width: 320px;
+}
+
+.login-form input {
+  height: 25px;
+  width: 290px;
+  border: 1px thin gray;
+  border-radius: 2px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 12pt;
+  display: block;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.login-form button {
+  height: 55px;
+  width: 322px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12pt;
+  border-color: green;
+}
+
+.login-form button {
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+
+.form-footer {
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+  font-size: 10pt;
+}
+
+.form-fotter p, .form-footer a {
+  color: white;
+}

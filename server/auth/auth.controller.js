@@ -6,7 +6,8 @@ const User = require('../user/user.model');
 const path = require('path');
 
 function showSignupForm(req, res, next) {
-  res.sendFile(path.join(__dirname, '../../public', 'signup.html'));
+  //res.sendFile(path.join(__dirname, '../../public', 'signup.html'));
+  res.sendFile(path.resolve('public/signup.html'));
 }
 // Unncessary because of use html middleware function in server.js. When it goes
 //to the route ending in /signup, it looks for an html file with the name signup
@@ -15,6 +16,7 @@ function showSignupForm(req, res, next) {
 
 function signup(req, res, next) {
   const requiredFields = ['email', 'password'];
+  //taken from the names of the inputs
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -47,7 +49,8 @@ function signup(req, res, next) {
 }
 
 function showLoginForm(req, res, next) {
-  res.sendFile(path.join(__dirname, '../../public', 'login.html'));
+  //res.sendFile(path.join(__dirname, '../../public', 'login.html'));
+  res.sendFile(path.resolve('public/login.html'));
 }
 
 function login(req, res, next) {
@@ -68,7 +71,7 @@ function login(req, res, next) {
     });
 }
 
-//This isn't used anywhere yet.
+
 function logout(req, res, next) {
   req.user = null;
   res.clearCookie('woofle-token');
