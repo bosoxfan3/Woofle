@@ -1,24 +1,34 @@
 const DOG_CEO_BREED_URL="https://dog.ceo/api/breed/";
 
-function getDataFromDogCEOApi(searchTerm) {
-  let query;
-  if(searchTerm.indexOf(' ') >= 0) {
-    let splitTerm = searchTerm.split(' ');
-    query = `${splitTerm[1]}/${splitTerm[0]}/images`;
-  } else {
-    query = `${searchTerm}/images`;
-  }
-  $.getJSON(DOG_CEO_BREED_URL+query, {}, function(data) {
-    showDogImages(data);
-  });
-}
+// function getDataFromDogCEOApi(searchTerm) {
+//   let query;
+//   if(searchTerm.indexOf(' ') >= 0) {
+//     let splitTerm = searchTerm.split(' ');
+//     query = `${splitTerm[1]}/${splitTerm[0]}/images`;
+//   } else {
+//     query = `${searchTerm}/images`;
+//   }
+//   $.getJSON(DOG_CEO_BREED_URL+query, {}, function(data) {
+//     showDogImages(data);
+//   });
+// }
 
 function showDogImages(result) {
   let html = '';
   for (let i=0; i<5; i++) {
-    html += `<img src=${result.message[i]}>`;
+    html += `<img src=${result[i]}>`;
   }
   $('.js-images-div').append(html);
+}
+
+function getDataFromDogCEOApi(searchTerm) {
+  $.get('/breeds/fetch/'+searchTerm)
+    .done(function (images) {
+      showDogImages(images);
+    })
+    .fail(function (error) {
+      console.log(error);
+    });
 }
 
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
@@ -60,9 +70,7 @@ getDataFromDogCEOApi(resultDog);
 getDataFromYouTubeApi(resultDog);
 //
 
-//IN PROGRESS. Working with adding to favorites
 $('.js-add-to-favorites-button').click(event => {
-  console.log('button clicked');
   $.ajax({
     url: '/api/favorites/' + resultDog,
     method: 'POST',
@@ -81,5 +89,18 @@ $('.js-log-out-button').click(function(event) {
 });
 
 $('.js-go-to-search-button').click(function(event) {
-  window.location.href = '/search';
+  window.location.href = 'search';
+});
+
+$('.js-view-favorites-button').click(function(event) {
+  window.location.href = '/api/favorites';
+  //This triggers a move to the api/favorites('/') route which calls showFavorites.
+  //Show favorites is a function that loads the favorites HTML page. The
+  //favorites HTML page automatically loads the favoritesFrontEnd js. This then
+  //immediately calls the getFavorites function which makes a json call to
+  //the api/favorites('/all') route. The ('/all') route finds the user and sends
+  //back a json object with their favorites. Once that response is sent to the 
+  //front end, the same function that made that ajax request uses the response
+  //and then calls drawFavoritesList which goes through the json user favorites
+  //data and turns it into html and inserts it onto the page.
 });

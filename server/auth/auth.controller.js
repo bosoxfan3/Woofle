@@ -27,6 +27,9 @@ function signup(req, res, next) {
   }
   User
     .create({
+      //create is usable even though it isn't a defined function in user.model
+      //because .create is a mongoose method. You export the userSchema as a 
+      //mongoose based model at the bottom of user.model.js
       email: req.body.email,
       password: req.body.password
     })

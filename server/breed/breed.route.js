@@ -16,7 +16,7 @@ router.route('/search/:breedName')
 /**
  * Allow users to add favorite breed
  */
-// router.route('/fetch/:breedName')
-//   .get(expressJwt(breedController.fetchBreedData);
+router.route('/fetch/:breedName')
+  .get(breedController.fetchBreedData);
 
 module.exports = router;

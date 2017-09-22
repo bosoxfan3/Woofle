@@ -1,7 +1,8 @@
-var express = require('express');
+'use strict';
+
+const express = require('express');
 const expressJwt = require('express-jwt');
-var router = express.Router();
-var path = require('path');
+const router = express.Router();
 
 const favoritesController = require('./favorites.controller');
 const config = require('../../config');
@@ -14,6 +15,6 @@ router.route('/:breedName')
   .delete(favoritesController.deleteFavorite);
 
 router.route('/')
-  .get(favoritesController.newFunction);
+  .get(favoritesController.showFavorites);
 
 module.exports = router;

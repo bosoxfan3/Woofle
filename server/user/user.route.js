@@ -15,3 +15,7 @@ router.route('/viewFavorites')
 //Is this necessary anymore? We use favorites.route to go to favorites page
 
 module.exports = router;
+
+//THIS CAN BE DELETED. THEN JUST MAKE SURE TO TAKE OUT ANY REFERENCES OF IT IN THE 
+//SERVER. WE DON'T NEED USERS/FAVORITES TO SEE THE FAVORITES BECAUSE THERE IS ALSO
+//A /FAVORITES ROUTE AND ALL OF THE VIEW FAVORITES BUTTONS GO TO /FAVORITES INSTEAD

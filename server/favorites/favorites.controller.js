@@ -1,10 +1,11 @@
+'use strict';
+
 const _ = require('lodash');
 const User = require('../user/user.model');
 const path = require('path');
 
+//router.route('/favorites/all')
 function all(req, res, next) {
-  console.log('FAVORITES.ALL: for ' + JSON.stringify(req.user));
-
   User.getByEmail(req.user.email)
     .then((user) => {
       res.json(user.favorites);
@@ -52,7 +53,7 @@ function deleteFavorite(req, res, next) {
     });
 }
 
-function newFunction (req, res, next) {
+function showFavorites (req, res, next) {
   res.sendFile(path.resolve('public/favorites.html'));
 }
 
@@ -60,5 +61,5 @@ module.exports = {
   all,
   addFavorite,
   deleteFavorite,
-  newFunction
+  showFavorites
 };
