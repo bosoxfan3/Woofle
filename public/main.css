@@ -7,9 +7,25 @@ body {
   background-color: #337EE1;
 }
 
+.title {
+  display: block;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 40px;
+}
+
 .login-form {
   width: 400px;
-  height: 500px;
+  height: 450px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.signup-form {
+  width: 400px;
+  height: 450px;
   border-radius: 2px;
   margin-left: auto;
   margin-right: auto;
@@ -24,7 +40,14 @@ fieldset {
   text-align: center;
   font-size: 24pt;
   padding-top: 40px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
+}
+
+.signup-form legend {
+  text-align: center;
+  font-size: 24pt;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 
 .login-form label {
@@ -35,7 +58,28 @@ fieldset {
   width: 320px;
 }
 
+.signup-form label {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 10pt;
+  text-align: left;
+  width: 320px;
+}
+
 .login-form input {
+  height: 25px;
+  width: 290px;
+  border: 1px thin gray;
+  border-radius: 2px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 12pt;
+  display: block;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.signup-form input {
   height: 25px;
   width: 290px;
   border: 1px thin gray;
@@ -63,7 +107,27 @@ fieldset {
   border-color: green;
 }
 
-.login-form button {
+.signup-form button {
+  height: 55px;
+  width: 322px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12pt;
+  border-color: green;
+}
+
+.login-form button:hover{
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+
+.signup-form button:hover{
   background-color: darkgreen;
   border-color: darkgreen;
 }
@@ -75,6 +139,6 @@ fieldset {
   font-size: 10pt;
 }
 
-.form-fotter p, .form-footer a {
+.form-footer p, .form-footer a {
   color: white;
 }

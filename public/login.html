@@ -11,24 +11,24 @@
 </head>
 
 <body>
-  <header>
+  <div class="title">
     <h1>Woofle</h1>
-    <h4>Find information, pictures, and videos about dog breeds</h4>
-  </header>
-    <form role="form" action="/auth/login" accept-charset="UTF-8" method="post" class="login-form">
-      <fieldset>
-        <legend>Log In</legend>
-        <label for="user-email">Email</label>
-        <input type="email" placeholder="foo@bar.com" name="email" id="email" required/>
-        <label for="user-password">Password</label>
-        <input placeholder="1234passw0rd" type="password" name="password" id="password" required/>
-        <button type="submit" class="js-sign-up-button">Log in</button>
-      </fieldset>
-    </form>
+    <h4>Find pictures and videos about dog breeds</h4>
+  </div>
+  <form role="form" action="/auth/login" accept-charset="UTF-8" method="post" class="login-form">
+    <fieldset>
+      <legend>Log In</legend>
+      <label for="user-email">Email</label>
+      <input type="email" placeholder="foo@bar.com" name="email" id="email" required/>
+      <label for="user-password">Password</label>
+      <input placeholder="1234passw0rd" type="password" name="password" id="password" required/>
+      <button type="submit" class="js-sign-up-button">Log in</button>
+    </fieldset>
+  </form>
     
-    <footer role="contentinfo" class="form-footer">
-      <p>Don't have an account? <a href="/auth/signup" class="js-sign-up">Sign Up</a></p>
-    </footer>
+  <footer role="contentinfo" class="form-footer">
+    <p>Don't have an account? <a href="/auth/signup" class="js-sign-up">Sign Up</a></p>
+  </footer>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/account.js"></script>
