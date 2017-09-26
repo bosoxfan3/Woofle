@@ -1,10 +1,11 @@
 'use strict';
 
-function getDataFromBothApis(searchTerm) {
+function getDataFromAllApis(searchTerm) {
   $.get('/breeds/fetch/'+searchTerm)
-    .done(function ({imageUrls, youTubeData}) {
+    .done(function ({imageUrls, youTubeData, giphyData}) {
       showDogImages(imageUrls);
       showYouTubeResults(youTubeData);
+      showGiphyResults(giphyData);
     })
     .fail(function (error) {
       console.log(error);
@@ -30,6 +31,14 @@ function showYouTubeResults(result) {
   $('.js-videos-div').append(html);
 }
 
+function showGiphyResults(result) {
+  var html = '';
+  for (let i=0; i<result.data.length; i++) {
+    html += `<img src=${result.data[i].images.original.url}>`;
+  }
+  $('.js-gifs-div').append(html);
+}
+
 //getting the breed name from the backend and using it to add a title
 //and make API calls
 let resultDog = window.location.pathname.replace('/breeds/', '');
@@ -39,7 +48,8 @@ if (resultDog.indexOf('%20') >= 1) {
 }
 $('h1 span').html(resultDog.toUpperCase());
 
-getDataFromBothApis(resultDog);
+getDataFromAllApis(resultDog);
+//end of above comment section
 
 $('.js-add-to-favorites-button').click(event => {
   $.ajax({

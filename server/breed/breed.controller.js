@@ -8,11 +8,12 @@ function fetchBreedData(req, res, next) {
   const breedName = req.params.breedName;
   Promise.all([
     breedService.getDataFromDogCEOApi(breedName),
-    breedService.getDataFromYouTubeApi(breedName)
+    breedService.getDataFromYouTubeApi(breedName),
+    breedService.getDataFromGiphyApi(breedName)
   ])
-    .then(([imageData, youTubeData]) => {
+    .then(([imageData, youTubeData, giphyData]) => {
       const imageUrls = _.slice(imageData.message,0 ,5);
-      return res.json({imageUrls, youTubeData});
+      return res.json({imageUrls, youTubeData, giphyData});
     })
     .catch(err => {
       console.error(err);

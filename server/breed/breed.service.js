@@ -53,9 +53,33 @@ function getDataFromYouTubeApi(searchTerm) {
 //and pass in the query object with axios
 
 //Backend API call for Giphy
-let key = 'XI2lIsawKnSI6Q4Tdr7wnSc3wu7bsgPd';
+const GIPHY_SEARCH_URL = 'http://api.giphy.com/v1/gifs/search';
+
+function getDataFromGiphyApi(searchTerm) {
+  const query = {
+    q: `${searchTerm}`,
+    api_key: 'XI2lIsawKnSI6Q4Tdr7wnSc3wu7bsgPd',
+    limit: 4
+  };
+  let queryString = '?';
+  for (var key in query) {
+    queryString += `${key}=${encodeURIComponent(query[key])}&`;
+  }
+  queryString = queryString.substr(0, queryString.length-1);
+  return axios.get(GIPHY_SEARCH_URL+queryString)
+    .then((data) => {
+      return data.data;
+    })
+    .catch(err => {
+      console.log(`Error in fetching gifs from Giphy ${err}`);
+      return Promise.reject(err);
+    });
+}
+//This call is the same format as the YouTube one where we made our own queryString
+//because we couldn't just do a .getJSON with the query object
 
 module.exports = {
   getDataFromDogCEOApi,
-  getDataFromYouTubeApi
+  getDataFromYouTubeApi,
+  getDataFromGiphyApi
 };
