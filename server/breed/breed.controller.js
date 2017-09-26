@@ -10,8 +10,8 @@ function fetchBreedData(req, res, next) {
     breedService.getDataFromDogCEOApi(breedName),
     breedService.getDataFromYouTubeApi(breedName)
   ])
-    .then(([data, youTubeData]) => {
-      const imageUrls = _.slice(data.message,0 ,5);
+    .then(([imageData, youTubeData]) => {
+      const imageUrls = _.slice(imageData.message,0 ,5);
       return res.json({imageUrls, youTubeData});
     })
     .catch(err => {
@@ -19,6 +19,9 @@ function fetchBreedData(req, res, next) {
       res.status(500).json({message: 'Internal server error'});
     });
 }
+//Promise.all makes sure this gets started after the data has been retrieved from both APIs.
+//This makes it so they load at the same time. Also if you go to the endpoint breed/fetch/breedName
+//you will see the two objects that are returned in line 15
 
 function showBreedPage(req, res, next) {
   res.sendFile(path.resolve('public/breed.html'));

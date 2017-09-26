@@ -1,20 +1,5 @@
 'use strict';
 
-// const DOG_CEO_BREED_URL="https://dog.ceo/api/breed/";
-
-// function getDataFromDogCEOApi(searchTerm) {
-//   let query;
-//   if(searchTerm.indexOf(' ') >= 0) {
-//     let splitTerm = searchTerm.split(' ');
-//     query = `${splitTerm[1]}/${splitTerm[0]}/images`;
-//   } else {
-//     query = `${searchTerm}/images`;
-//   }
-//   $.getJSON(DOG_CEO_BREED_URL+query, {}, function(data) {
-//     showDogImages(data);
-//   });
-// }
-
 function showDogImages(result) {
   let html = '';
   for (let i=0; i<5; i++) {
@@ -22,32 +7,6 @@ function showDogImages(result) {
   }
   $('.js-images-div').append(html);
 }
-
-function getDataFromDogCEOApi(searchTerm) {
-  $.get('/breeds/fetch/'+searchTerm)
-    .done(function ({imageUrls, youTubeData}) {
-      showDogImages(imageUrls);
-      showYouTubeResults(youTubeData);
-    })
-    .fail(function (error) {
-      console.log(error);
-    });
-}
-
-// const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
-
-// function getDataFromYouTubeApi(searchTerm) {
-//   console.log('calling getDataFromYouTube');
-//   const query = {
-//     q: `${searchTerm} dog breed`,
-//     part: 'snippet',
-//     key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
-//   };
-
-//   $.getJSON(YOUTUBE_SEARCH_URL, query, function (data) {
-//     showYouTubeResults(data.items);
-//   });
-// }
 
 function showYouTubeResults(result) {
   var html = ' ';
@@ -60,6 +19,16 @@ function showYouTubeResults(result) {
   $('.js-videos-div').append(html);
 }
 
+function getDataFromBothApis(searchTerm) {
+  $.get('/breeds/fetch/'+searchTerm)
+    .done(function ({imageUrls, youTubeData}) {
+      showDogImages(imageUrls);
+      showYouTubeResults(youTubeData);
+    })
+    .fail(function (error) {
+      console.log(error);
+    });
+}
 
 //getting the breed name from the backend and using it to add a title
 //and make API calls
@@ -70,9 +39,7 @@ if (resultDog.indexOf('%20') >= 1) {
 }
 $('h1 span').html(resultDog.toUpperCase());
 
-getDataFromDogCEOApi(resultDog);
-// getDataFromYouTubeApi(resultDog);
-//
+getDataFromBothApis(resultDog);
 
 $('.js-add-to-favorites-button').click(event => {
   $.ajax({

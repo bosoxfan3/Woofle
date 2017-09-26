@@ -19,9 +19,11 @@ function getDataFromDogCEOApi(searchTerm) {
     })
     .catch(err => {
       console.log(`Error in fetching images from dog CEO ${err}`)
-      return Promise.reject(err)
+      return Promise.reject(err);
     });
 }
+//This call is essentially the same as the front end except it is axios.get instead of
+//.getJSON
 
 //Backend API calls for YouTube
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
@@ -39,14 +41,16 @@ function getDataFromYouTubeApi(searchTerm) {
   queryString = queryString.substr(0, queryString.length-1);
   return axios.get(YOUTUBE_SEARCH_URL+queryString)
     .then((data) => {
-      console.log(data.data.items);
       return data.data.items;
     })
     .catch(err => {
-      console.log(`Error in fetching videos from YouTube ${err}`)
+      console.log(`Error in fetching videos from YouTube ${err}`);
       return Promise.reject(err);
     });
 }
+//This call is essentially the same as the front end except we had to re-write the
+//query object into queryString because we couldn't just do a .getJSON 
+//and pass in the query object with axios
 
 module.exports = {
   getDataFromDogCEOApi,
