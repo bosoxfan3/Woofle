@@ -13,9 +13,6 @@ router.route('/:breedName')
 router.route('/search/:breedName')
   .get(breedController.saveInputFromBreedSearch);
 
-/**
- * Allow users to add favorite breed
- */
 router.route('/fetch/:breedName')
   .get(breedController.fetchBreedData);
 

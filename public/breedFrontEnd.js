@@ -1,4 +1,6 @@
-const DOG_CEO_BREED_URL="https://dog.ceo/api/breed/";
+'use strict';
+
+// const DOG_CEO_BREED_URL="https://dog.ceo/api/breed/";
 
 // function getDataFromDogCEOApi(searchTerm) {
 //   let query;
@@ -31,7 +33,7 @@ function getDataFromDogCEOApi(searchTerm) {
     });
 }
 
-const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+// const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromYouTubeApi(searchTerm) {
   const query = {

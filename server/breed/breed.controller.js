@@ -6,7 +6,6 @@ const path = require('path');
 
 function fetchBreedData(req, res, next) {
   const breedName = req.params.breedName;
-
   breedService.getDataFromDogCEOApi(breedName)
     .then(data => {
       const imageUrls = _.slice(data.message,0 ,5);

@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-//Backend API calls for DogCEO so that we only get 5 images
+//Backend API calls for DogCEO
 const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
 
 function getDataFromDogCEOApi(searchTerm) {
@@ -15,12 +15,28 @@ function getDataFromDogCEOApi(searchTerm) {
   }
   return axios.get(DOG_CEO_BREED_URL+query)
     .then((data) => {
+      console.log(data);
       return data.data;
     })
     .catch(err => {
       console.log(`Error in fetching images from dog CEO ${err}`)
       return Promise.reject(err)
-    })
+    });
+}
+
+//Backend API calls for YouTube
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
+
+function getDataFromYouTubeApi(searchTerm) {
+  const query = {
+    q: `${searchTerm} dog breed`,
+    part: 'snippet',
+    key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
+  };
+
+  $.getJSON(YOUTUBE_SEARCH_URL, query, function (data) {
+    showYouTubeResults(data.items);
+  });
 }
 
 module.exports = {
