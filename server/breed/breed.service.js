@@ -15,7 +15,6 @@ function getDataFromDogCEOApi(searchTerm) {
   }
   return axios.get(DOG_CEO_BREED_URL+query)
     .then((data) => {
-      console.log(data);
       return data.data;
     })
     .catch(err => {
@@ -33,12 +32,23 @@ function getDataFromYouTubeApi(searchTerm) {
     part: 'snippet',
     key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
   };
-
-  $.getJSON(YOUTUBE_SEARCH_URL, query, function (data) {
-    showYouTubeResults(data.items);
-  });
+  let queryString = '?';
+  for (var key in query) {
+    queryString += `${key}=${encodeURIComponent(query[key])}&`;
+  }
+  queryString = queryString.substr(0, queryString.length-1);
+  return axios.get(YOUTUBE_SEARCH_URL+queryString)
+    .then((data) => {
+      console.log(data.data.items);
+      return data.data.items;
+    })
+    .catch(err => {
+      console.log(`Error in fetching videos from YouTube ${err}`)
+      return Promise.reject(err);
+    });
 }
 
 module.exports = {
-  getDataFromDogCEOApi
+  getDataFromDogCEOApi,
+  getDataFromYouTubeApi
 };

@@ -25,8 +25,9 @@ function showDogImages(result) {
 
 function getDataFromDogCEOApi(searchTerm) {
   $.get('/breeds/fetch/'+searchTerm)
-    .done(function (images) {
-      showDogImages(images);
+    .done(function ({imageUrls, youTubeData}) {
+      showDogImages(imageUrls);
+      showYouTubeResults(youTubeData);
     })
     .fail(function (error) {
       console.log(error);
@@ -35,17 +36,18 @@ function getDataFromDogCEOApi(searchTerm) {
 
 // const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
-function getDataFromYouTubeApi(searchTerm) {
-  const query = {
-    q: `${searchTerm} dog breed`,
-    part: 'snippet',
-    key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
-  };
+// function getDataFromYouTubeApi(searchTerm) {
+//   console.log('calling getDataFromYouTube');
+//   const query = {
+//     q: `${searchTerm} dog breed`,
+//     part: 'snippet',
+//     key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
+//   };
 
-  $.getJSON(YOUTUBE_SEARCH_URL, query, function (data) {
-    showYouTubeResults(data.items);
-  });
-}
+//   $.getJSON(YOUTUBE_SEARCH_URL, query, function (data) {
+//     showYouTubeResults(data.items);
+//   });
+// }
 
 function showYouTubeResults(result) {
   var html = ' ';
@@ -57,7 +59,7 @@ function showYouTubeResults(result) {
   });
   $('.js-videos-div').append(html);
 }
-//
+
 
 //getting the breed name from the backend and using it to add a title
 //and make API calls
@@ -69,7 +71,7 @@ if (resultDog.indexOf('%20') >= 1) {
 $('h1 span').html(resultDog.toUpperCase());
 
 getDataFromDogCEOApi(resultDog);
-getDataFromYouTubeApi(resultDog);
+// getDataFromYouTubeApi(resultDog);
 //
 
 $('.js-add-to-favorites-button').click(event => {

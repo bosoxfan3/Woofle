@@ -6,10 +6,13 @@ const path = require('path');
 
 function fetchBreedData(req, res, next) {
   const breedName = req.params.breedName;
-  breedService.getDataFromDogCEOApi(breedName)
-    .then(data => {
+  Promise.all([
+    breedService.getDataFromDogCEOApi(breedName),
+    breedService.getDataFromYouTubeApi(breedName)
+  ])
+    .then(([data, youTubeData]) => {
       const imageUrls = _.slice(data.message,0 ,5);
-      return res.json(imageUrls);
+      return res.json({imageUrls, youTubeData});
     })
     .catch(err => {
       console.error(err);
