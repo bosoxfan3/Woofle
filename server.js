@@ -12,10 +12,6 @@ var app = express();
 
 mongoose.Promise=global.Promise;
 
-// var index = require('./routes/index');
-//var favorites = require('./routes/favorites');
-// var breeds = require('./routes/breeds');
-
 const authRoutes = require('./server/auth/auth.route');
 const userRoutes = require('./server/user/user.route');
 const breedRoutes = require('./server/breed/breed.route');
@@ -28,25 +24,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Authentication middleware provided by express-jwt. If it succeeds, it sets req.user.
+// Authentication middleware provided by express-jwt. If you're not logged in, it says you're unauthorized.
+//Otherwise it allows you to access the resource
 app.use(ejwt({
   secret: JWT_SECRET_KEY,
   getToken: function fromHeader (req) {
     return req.cookies['woofle-token'];
   },
-
-}).unless({path: ['/auth/login', '/auth/signup']}));
+}).unless({path: ['/auth/login', '/auth/signup', '/main.css']}));
 
 app.use(express.static('public', {
   extensions: ['html']
 }));
 
-
-
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/breeds', breedRoutes);
-//console.log(favoritesRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
 app.use('/search', function(req, res, next) {
