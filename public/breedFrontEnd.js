@@ -1,5 +1,16 @@
 'use strict';
 
+function getDataFromBothApis(searchTerm) {
+  $.get('/breeds/fetch/'+searchTerm)
+    .done(function ({imageUrls, youTubeData}) {
+      showDogImages(imageUrls);
+      showYouTubeResults(youTubeData);
+    })
+    .fail(function (error) {
+      console.log(error);
+    });
+}
+
 function showDogImages(result) {
   let html = '';
   for (let i=0; i<5; i++) {
@@ -17,17 +28,6 @@ function showYouTubeResults(result) {
     }
   });
   $('.js-videos-div').append(html);
-}
-
-function getDataFromBothApis(searchTerm) {
-  $.get('/breeds/fetch/'+searchTerm)
-    .done(function ({imageUrls, youTubeData}) {
-      showDogImages(imageUrls);
-      showYouTubeResults(youTubeData);
-    })
-    .fail(function (error) {
-      console.log(error);
-    });
 }
 
 //getting the breed name from the backend and using it to add a title

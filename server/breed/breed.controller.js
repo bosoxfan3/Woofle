@@ -21,7 +21,7 @@ function fetchBreedData(req, res, next) {
 }
 //Promise.all makes sure this gets started after the data has been retrieved from both APIs.
 //This makes it so they load at the same time. Also if you go to the endpoint breed/fetch/breedName
-//you will see the two objects that are returned in line 15
+//in the browser you will see the two objects that are returned in line 15
 
 function showBreedPage(req, res, next) {
   res.sendFile(path.resolve('public/breed.html'));
