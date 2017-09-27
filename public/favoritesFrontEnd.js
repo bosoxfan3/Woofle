@@ -33,7 +33,7 @@ getFavorites();
 //This gets called as soon as the html page is loaded.
 
 $('.js-go-to-search-button').click(function(event) {
-  window.location.href = 'search';
+  window.location.href = '/search';
 });
 
 $('.js-log-out-button').click(function(event) {
