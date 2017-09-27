@@ -42,9 +42,9 @@ const dogBreedArray = ['affenpinscher', 'african', 'airedale', 'akita', 'appenze
   'weimaraner', 'whippet', 'irish wolfhound'];
 
 $('.js-random-search-button').click(function(event) {
-  let typedInput = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];
+  let randomBreed = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];
   $.ajax({
-    url: '/breeds/search/' + typedInput,
+    url: '/breeds/search/' + randomBreed,
     method: 'GET',
   })
     .done(function (done) {
@@ -55,6 +55,7 @@ $('.js-random-search-button').click(function(event) {
     });
   $('#breedSearch').val('');  
 });
+//same function as above, just with randomized dog breed
 
 $('.js-view-favorites-button').click(function(event) {
   window.location.href = 'favorites';
