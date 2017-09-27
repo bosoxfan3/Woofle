@@ -61,7 +61,7 @@ $('.js-log-out-button').click(function(event) {
 });
 
 $('.js-go-to-search-button').click(function(event) {
-  window.location.href = 'search';
+  window.location.href = '/search';
 });
 
 $('.js-view-favorites-button').click(function(event) {
