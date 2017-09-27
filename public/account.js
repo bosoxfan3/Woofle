@@ -21,3 +21,6 @@
 //       });
 //   });
 // });
+
+//Probably unnecessary since the form submits automatically to the endpoint listed
+//in the HTML. Then the endpoint takes care of what is done in the rest of the function
