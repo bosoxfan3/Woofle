@@ -52,9 +52,6 @@ function getDataFromYouTubeApi(searchTerm) {
 //query object into queryString because we couldn't just do a .getJSON 
 //and pass in the query object with axios
 
-//Backend API call for Giphy
-let key = 'XI2lIsawKnSI6Q4Tdr7wnSc3wu7bsgPd';
-
 module.exports = {
   getDataFromDogCEOApi,
   getDataFromYouTubeApi
