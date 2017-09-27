@@ -8,7 +8,7 @@ function fetchBreedData(req, res, next) {
   const breedName = req.params.breedName;
   Promise.all([
     breedService.getDataFromDogCEOApi(breedName),
-    breedService.getDataFromYouTubeApi(breedName)
+    breedService.getDataFromYouTubeApi(breedName),
   ])
     .then(([imageData, youTubeData]) => {
       const imageUrls = _.slice(imageData.message,0 ,5);

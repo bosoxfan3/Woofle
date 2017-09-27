@@ -1,6 +1,6 @@
 'use strict';
 
-function getDataFromBothApis(searchTerm) {
+function getDataFromAllApis(searchTerm) {
   $.get('/breeds/fetch/'+searchTerm)
     .done(function ({imageUrls, youTubeData}) {
       showDogImages(imageUrls);
@@ -39,7 +39,8 @@ if (resultDog.indexOf('%20') >= 1) {
 }
 $('h1 span').html(resultDog.toUpperCase());
 
-getDataFromBothApis(resultDog);
+getDataFromAllApis(resultDog);
+//end of above comment section
 
 $('.js-add-to-favorites-button').click(event => {
   $.ajax({
