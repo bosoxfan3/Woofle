@@ -1,0 +1,56 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #4AB3F4;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  color: white;
+}
+
+select {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 40px;
+  font-size: 20px;
+  display: block;
+}
+
+button {
+  height: 40px;
+  width: 125px;
+  background-color: white;
+  border-color: transparent;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: blue;
+  border-color: blue;
+  color: white;
+}
+
+.search-buttons {
+  width: 100%;
+  text-align: center;
+}
+
+.inline-search-button {
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.fav-button, .logout-button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
