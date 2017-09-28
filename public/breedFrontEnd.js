@@ -23,8 +23,16 @@ function showYouTubeResults(result) {
   var html = ' ';
   $.each(result, function (index, value) {
     if (value.id.videoId) {
-      var videoLink = 'https://www.youtube.com/watch?v=' + value.id.videoId;
-      html += `<a href="${videoLink}"><img src="${value.snippet.thumbnails.default.url}"/></a>`;
+      let videoLink = 'https://www.youtube.com/watch?v=' + value.id.videoId;
+      //html += `<a href="${videoLink}"><img src="${value.snippet.thumbnails.default.url}"/></a>`;
+      //above would be for having a thumbnail that when clicked goes to youtube itself
+      let embedLink = 'https://www.youtube.com/embed/' + value.id.videoId;
+      if ((value.snippet.title).length > 46) {
+        value.snippet.title = (value.snippet.title).substr(0, 46)+'...';
+      }
+      html += `<div title="youtube-video-${index}"><iframe width="350" height="250" src="${embedLink}"></iframe>` +
+              '<br>' +
+              `<a href="${videoLink}">${value.snippet.title}</a></div>`;
     }
   });
   $('.js-videos-div').append(html);
@@ -49,6 +57,7 @@ $('.js-add-to-favorites-button').click(event => {
     data: {breed: resultDog}
   })
     .done(function (done) {
+      $('p').append('Added To Your Favorites');
       console.log(done);
     })
     .fail(function (fail) {
