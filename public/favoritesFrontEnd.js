@@ -4,7 +4,7 @@ function drawFavoritesList(favorites) {
   let html = '';
   $.each(favorites, function (index, value) {
     html += '<p>';
-    html += '<a href="/breeds/' + value + '">' + value + "</a>";
+    html += '<a href="/breeds/' + value + '">' + value.toUpperCase() + "</a>";
     html += '<button type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
     //  html += '<button type="button" onclick="alert("foo");">Remove Favorite</button>';
     html += '</p>';
