@@ -13,8 +13,8 @@ function getDataFromAllApis(searchTerm) {
 
 function showDogImages(result) {
   let html = '';
-  for (let i=0; i<5; i++) {
-    html += `<img src=${result[i]}>`;
+  for (let i=0; i<result.length; i++) {
+    html += `<img class="dog-image" border="8px" src=${result[i]}>`;
   }
   $('.js-images-div').append(html);
 }
@@ -37,7 +37,7 @@ if (resultDog.indexOf('%20') >= 1) {
   resultDog = resultDog.split('%20');
   resultDog = resultDog[0]+' '+resultDog[1];
 }
-$('h1 span').html(resultDog.toUpperCase());
+$('h1').html(resultDog.toUpperCase());
 
 getDataFromAllApis(resultDog);
 //end of above comment section

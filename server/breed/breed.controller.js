@@ -11,7 +11,7 @@ function fetchBreedData(req, res, next) {
     breedService.getDataFromYouTubeApi(breedName),
   ])
     .then(([imageData, youTubeData]) => {
-      const imageUrls = _.slice(imageData.message,0 ,5);
+      const imageUrls = _.slice(imageData.message,0 ,8);
       return res.json({imageUrls, youTubeData});
     })
     .catch(err => {

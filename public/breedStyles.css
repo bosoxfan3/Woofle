@@ -1,0 +1,48 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #4AB3F4;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 40px;
+  color: white;
+}
+
+button {
+  height: 40px;
+  width: 125px;
+  background-color: white;
+  border-color: transparent;
+  border-radius: 3px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: blue;
+  border-color: blue;
+  color: white;
+}
+
+.dog-image-div {
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 20px
+}
+
+.dog-image {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-color: white;
+}
