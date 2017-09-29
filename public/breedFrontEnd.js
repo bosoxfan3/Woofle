@@ -57,7 +57,7 @@ $('.js-add-to-favorites-button').click(event => {
     data: {breed: resultDog}
   })
     .done(function (done) {
-      $('p').append('Added To Your Favorites');
+      $('p').append('Added To My Favorites');
       console.log(done);
     })
     .fail(function (fail) {
