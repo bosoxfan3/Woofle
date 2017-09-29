@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../../config');
 const User = require('../user/user.model');
 const path = require('path');
+const moment = require('moment');
 
 function showSignupForm(req, res, next) {
   //res.sendFile(path.join(__dirname, '../../public', 'signup.html'));
@@ -40,9 +41,7 @@ function signup(req, res, next) {
     .catch(err => {
       if (err.code === 11000) {
         // Duplicate key error, already exists
-        console.log('That email is already registered');
-        //How can I send this back to the user so they know
-        //what is going on?
+        alert('That email is already registered');
         res.redirect('/auth/login');
         return;
       }
@@ -61,9 +60,11 @@ function login(req, res, next) {
   User.get(email, password)
   //can't say that this part makes perfect sense
     .then((user) => {
+      let expires = moment().add('seconds', 60).valueOf();
       const token = jwt.sign({
         email: user.email,
-        id: user.id
+        id: user.id,
+        expiresIn: expires
       }, config.JWT_SECRET_KEY);
       // Set a cookie for our auth token.
       res.cookie('woofle-token', token);
