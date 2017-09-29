@@ -3,11 +3,10 @@
 function drawFavoritesList(favorites) {
   let html = '';
   $.each(favorites, function (index, value) {
-    html += '<p>';
-    html += '<a href="/breeds/' + value + '">' + value.toUpperCase() + "</a>";
-    html += '<button type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
-    //  html += '<button type="button" onclick="alert("foo");">Remove Favorite</button>';
-    html += '</p>';
+    html += '<div class="favorite-breed"><p>';
+    html += '<a class="breed-link" href="/breeds/' + value + '">' + value.toUpperCase() + "</a>";
+    html += '<button class="remove-button" type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
+    html += '</p></div>';
   });
   $('.js-favorites-div').html(html);
 }

@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: white;
 }
 
@@ -24,4 +24,22 @@ button:hover {
   background-color: blue;
   border-color: blue;
   color: white;
+}
+
+.favorite-breed {
+  border: 2px solid black;
+  width: 600px;
+  height: 60px;
+  margin: 10px auto 10px auto;
+}
+
+.remove-button {
+  position: relative;
+  left: 200px;
+  display: inline-block;
+}
+
+.breed-link {
+  display: inline-block;
+  width: 250px;
 }
