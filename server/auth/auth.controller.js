@@ -60,14 +60,12 @@ function login(req, res, next) {
   User.get(email, password)
   //can't say that this part makes perfect sense
     .then((user) => {
-      let expires = moment().add('seconds', 60).valueOf();
       const token = jwt.sign({
         email: user.email,
         id: user.id,
-        expiresIn: expires
       }, config.JWT_SECRET_KEY);
       // Set a cookie for our auth token.
-      res.cookie('woofle-token', token);
+      res.cookie('woofle-token', token, {maxAge: 999999});
       res.redirect('/search');
     })
     .catch(err => {
