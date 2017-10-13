@@ -3,6 +3,10 @@
 const jwt = require('jsonwebtoken');
 const config = require('../../config');
 const User = require('../user/user.model');
+User.findOne()
+.exec(function(err, data) {
+  console.log(data, 'i am here');
+});
 const path = require('path');
 const moment = require('moment');
 
@@ -57,13 +61,34 @@ function showLoginForm(req, res, next) {
 
 function login(req, res, next) {
   const { email, password } = req.body;
-  User.get(email, password)
-  //can't say that this part makes perfect sense
+  if (!email) {
+    return res.status(401).send();
+  }
+  if (!password) {
+    return res.status(401).send();
+  }
+  User.findOne()
+    .exec(function(err, data) {
+      console.log(data, 'i am here');
+    });
+  User.findOne({email})
+    .exec()
+    .then((user) => {
+      console.log(user, 'user');
+      if (!user) {
+        return res.status(401).send();
+      }
+      if (password !== user.password) {
+        return res.status(401).send();
+      }
+      return user;
+    })
     .then((user) => {
       const token = jwt.sign({
         email: user.email,
         id: user.id,
       }, config.JWT_SECRET_KEY);
+      console.log('made it here');
       // Set a cookie for our auth token.
       res.cookie('woofle-token', token, {maxAge: 999999});
       res.redirect('/search');

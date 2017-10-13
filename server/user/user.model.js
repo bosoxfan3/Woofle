@@ -13,17 +13,22 @@ userSchema.statics = {
    * Get user with given email and password
    */
   get (email, password) {
+    console.log(email);
     return this.findOne({
       email,
       password
     })
       .exec()
       .then((user) => {
+        console.log(user, 'user');
         if (user) {
-          return user;
+          return Promise.resolve(user);
         }
         const err = new Error('user credentials does not match');
         return Promise.reject(err);
+      })
+      .catch((err) => {
+        console.log(err, 'error');
       });
   },
 
