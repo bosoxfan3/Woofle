@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = mongoose.Schema({
+  // email: String,
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   favorites: [String],
@@ -13,24 +14,24 @@ userSchema.statics = {
    * Get user with given email and password
    */
   get (email, password) {
-    console.log(email);
     return this.findOne({
       email,
       password
     })
       .exec()
       .then((user) => {
-        console.log(user, 'user');
         if (user) {
           return Promise.resolve(user);
+          // return user;
         }
         const err = new Error('user credentials does not match');
         return Promise.reject(err);
       })
       .catch((err) => {
-        console.log(err, 'error');
+        console.log(err, 'there was an error');
       });
   },
+  //Don't know that I ever use these functions
 
   /**
    * Get user by email
