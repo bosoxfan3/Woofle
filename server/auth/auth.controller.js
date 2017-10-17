@@ -15,6 +15,7 @@ function showSignupForm(req, res, next) {
 //If you do want to use again, make sure to export this function
 
 function signup(req, res, next) {
+  const { email, password } = req.body;
   const requiredFields = ['email', 'password'];
   //taken from the names of the inputs
   for (let i=0; i<requiredFields.length; i++) {
@@ -25,29 +26,35 @@ function signup(req, res, next) {
       return res.status(400).send(message);
     }
   }
-  User
-    .create({
-      //create is usable even though it isn't a defined function in user.model
-      //because .create is a mongoose method. You export the userSchema as a 
-      //mongoose based model at the bottom of user.model.js
-      email: req.body.email,
-      password: req.body.password
-    })
+  User.findOne({email})
+    .then(function(result) {
+      if (result !== null) {
+        const message = `${email} already in database`;
+        console.error(message);
+        return res.status(400).send(message);
+      }
+    });
+  User.create({email, password})
+    //create is usable even though it isn't a defined function in user.model
+    //because .create is a mongoose method. You export the userSchema as a 
+    //mongoose based model at the bottom of user.model.js
+    .then(user => res.redirect('/auth/login'))
     //How can I send a message here so they know their stuff
     //got created?
     //1. Potentially create a new html file and new route that you can redirect to
-    .then(user => res.redirect('/auth/login'))
     .catch(err => {
-      if (err.code === 11000) {
-        // Duplicate key error, already exists
-        alert('That email is already registered');
-        res.redirect('/auth/login');
-        return;
-      }
+      // if (err.code === 11000) {
+      //   // Duplicate key error, already exists
+      //   // alert('That email is already registered');
+      //   res.redirect('/auth/login');
+      //   return;
+      // }
       console.error('Error creating user: ' + err);
       res.status(500).json({message: 'Internal server error'});
+      res.redirect('/auth/login');
     });
 }
+
 
 function showLoginForm(req, res, next) {
   //res.sendFile(path.join(__dirname, '../../public', 'login.html'));
