@@ -1,14 +1,16 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var ejwt = require('express-jwt');
+'use strict';
+
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const ejwt = require('express-jwt');
 const mongoose = require('mongoose');
 const {PORT, DATABASE_URL, JWT_SECRET_KEY} = require('./config');
 
-var app = express();
+const app = express();
 
 mongoose.Promise=global.Promise;
 
@@ -96,7 +98,6 @@ let server;
 
 // this function connects to our database, then starts the server
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
-
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {
       if (err) {
@@ -119,7 +120,6 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
 function closeServer() {
   return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
-      console.log('Closing server');
       server.close(err => {
         if (err) {
           return reject(err);
