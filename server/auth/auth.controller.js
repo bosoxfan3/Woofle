@@ -33,25 +33,25 @@ function signup(req, res, next) {
         console.error(message);
         return res.status(400).send(message);
       }
-    });
-  User.create({email, password})
-    //create is usable even though it isn't a defined function in user.model
-    //because .create is a mongoose method. You export the userSchema as a 
-    //mongoose based model at the bottom of user.model.js
-    .then(user => res.redirect('/auth/login'))
-    //How can I send a message here so they know their stuff
-    //got created?
-    //1. Potentially create a new html file and new route that you can redirect to
-    .catch(err => {
-      // if (err.code === 11000) {
-      //   // Duplicate key error, already exists
-      //   // alert('That email is already registered');
-      //   res.redirect('/auth/login');
-      //   return;
-      // }
-      console.error('Error creating user: ' + err);
-      res.status(500).json({message: 'Internal server error'});
-      res.redirect('/auth/login');
+      User.create({email, password})
+      //create is usable even though it isn't a defined function in user.model
+      //because .create is a mongoose method. You export the userSchema as a 
+      //mongoose based model at the bottom of user.model.js
+        .then(user => res.redirect('/auth/login'))
+      //How can I send a message here so they know their stuff
+      //got created?
+      //1. Potentially create a new html file and new route that you can redirect to
+        .catch(err => {
+        // if (err.code === 11000) {
+        //   // Duplicate key error, already exists
+        //   // alert('That email is already registered');
+        //   res.redirect('/auth/login');
+        //   return;
+        // }
+          console.error('Error creating user: ' + err);
+          res.status(500).json({message: 'Internal server error'});
+          res.redirect('/auth/login');
+        });
     });
 }
 
