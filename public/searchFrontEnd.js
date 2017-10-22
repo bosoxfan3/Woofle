@@ -1,3 +1,29 @@
+'use strict';
+
+function getAllBreedNames() {
+  $.get('/breeds/all')
+    .done(function(data) {
+      showBreedsInSelectBar(data);
+    })
+    .fail(function (error) {
+      console.log(error);
+    });
+}
+
+
+
+
+function showBreedsInSelectBar(result) {
+  
+  let html = '<select name="selectedBreed" id="breedSearch">';
+  $.each(result, function (index, value) {
+    html += `<option value=${value.value}>${value.inputText}</option>`;
+  });
+  html += '</select>';
+  $('#selectBar').append(html);
+}
+
+
 $('.js-search-button').click(function(event) {
   let typedInput = $('#breedSearch').val().toLowerCase();
   $.ajax({
@@ -63,6 +89,10 @@ $('.js-view-favorites-button').click(function(event) {
 
 $('.js-log-out-button').click(function(event) {
   window.location.href = '/auth/logout';
+});
+
+$(document).ready(function() {
+  getAllBreedNames();
 });
 
 

@@ -14,21 +14,40 @@ const {JWT_SECRET_KEY} = require('../config');
 const expect = chai.expect;
 chai.use(chaiHttp);
 
-const email = 'daniel@example.com';
-const password = '12345678';
+const email = 'daniel@yahoo.com';
+const password = '1234';
 
-describe('Logout endpoint', function() {
+describe('Search endpoint', function() {
 
   before(function () {
     return runServer(DATABASE_URL, PORT);
+    // User.create({email, password});
+    // console.log(user);
+    // const request = chai.request(app);
+    // return request
+    //   .post('/auth/login')
+    //   .send({email, password})
+    //   .end(function(err, res) {
+    //     res.should.have.status(200);
+    //   });
   });
 
   after(function() {
     return closeServer();
   });
 
-  beforeEach(function() {
-    return User.create({email, password});
+  beforeEach(function(done) {
+    User.create({email, password})
+      .then(function() {
+        chai.request(app)
+          .post('/auth/login')
+          .send({email, password})
+          .end(function(err, res) {
+            console.log(res.type);
+            // Cookie = res.headers['set-cookie'].pop().split(';')[0];
+            done();
+          });
+      });
   }); 
   
   afterEach(function() {
@@ -37,12 +56,48 @@ describe('Logout endpoint', function() {
 
   describe('Search page', function() {
     it('should get all breeds for the dropdown menu', function() {
-
-    });
-    it('should allow uses to select a breed and search', function() {
       return chai
         .request(app)
-        
+        .post('/auth/login')
+        .send({email, password})
+        .get('/breeds/all')
+        .exec()
+        .then(function(err, res) {
+          expect(res).to.be.an('array');
+          expect(res).to.have.status(200);
+          expect(res).to.have.lengthOf(121);
+          expect(res).to.have.property('[0].value', 'textInput');
+        })
+        .catch(function (err) {
+        });
     });
+    // it('should allow users to select a breed and search', function() {
+    //   return chai
+    //     .request(app)
+    //     .get('/breeds/search/akita')
+    //     .then(function(err, res) {
+    //       expect(res).to.be.an('object');
+    //       expect(res).to.have.property('imageUrls', 'youTubeData');
+    //       expect(res.body.imageUrls).to.be.schema({ type: 'array', minItems: 1, maxItems: 8 });
+    //       expect(res.body.youTubeData).to.be.schema({ type: 'array', minItems: 1, maxItems: 5 });
+    //     })
+    //     .catch(function (err) {
+    //     });
+    // });
+    // // it('should allow users to perform a random search', function() {
+    // //   return chai
+    // //     .request(app)
+    // //     .get()
+    // // });
+    // it('should go to my favorites page when my favorites button clicked', function() {
+    //   return chai
+    //     .request(app)
+    //     .get('/favorites/')
+    //     .then(function(err, res) {
+    //       expect(res).to.redirect('/favorites/all');
+    //     })
+    //     .catch(function (err) {
+    //     });
+    // });
   });
 });

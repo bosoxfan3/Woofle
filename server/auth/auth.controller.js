@@ -83,7 +83,7 @@ function login(req, res, next) {
         id: user.id,
       }, config.JWT_SECRET_KEY);
       // Set a cookie for our auth token.
-      res.cookie('woofle-token', token, {maxAge: 999999});
+      res.cookie('woofle-token', token, {maxAge: 9999999});
       res.redirect('/search');
     })
     .catch(err => {
