@@ -8,7 +8,7 @@ const breedController = require('./breed.controller');
 const config = require('../../config');
 
 router.route('/all')
-  .get(breedController.dumbFunction);
+  .get(breedController.loadSearchBar);
 //In Express, order matters. Previously had this as the last router.get and
 //it did not work because with (/:breedName) listed first it just assumed
 //(/all) was a substitute for breedName

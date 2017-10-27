@@ -35,8 +35,7 @@
 //           .post('/auth/login')
 //           .send({email, password})
 //           .end(function(err, res) {
-//             console.log(res.type);
-//             Cookie = res.headers['set-cookie'].pop().split(';')[0];
+//             Cookie = res.headers['set-cookie'].pop().split(';')[0].substr(13);
 //             done();
 //           });
 //       });
@@ -48,24 +47,17 @@
 
 //   describe('/auth/logout', function() {
 //     it('Should remove the token when logging out', function() {
-//       let req = chai.request(app).get('/auth/logout');
-//       req.cookies = Cookie;
-//       return req
-//         .then(function(res) {
+//       return chai
+//         .request(app)
+//         .get('/auth/logout')
+//         .set('woofle-token', Cookie)
+//         .then(function(err, res) {
 //           expect(res).to.have.status(302);
-//           expect(res).to.redirect('/auth/login');
+//           expect(res).to.redirectTo('/auth/login');
 //           expect(res).to.not.have.cookie('woofle-token');
-//         });
-//       // return chai
-//       //   .request(app)
-//       //   .get('/auth/logout')
-//       //   .then(function(err, res) {
-//       //     expect(res).to.have.status(302);
-//       //     expect(res).to.redirect('/auth/login');
-//       //     expect(res).to.not.have.cookie('woofle-token');
-//       //   })
-//       //   .catch(function (err) {
-//       //   });        
+//         })
+//         .catch(function (err) {
+//         });        
 //     }); 
 //   });
 // });

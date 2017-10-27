@@ -26,14 +26,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
+
 // Authentication middleware provided by express-jwt. If you're not logged in, it says you're unauthorized.
 //Otherwise it allows you to access the resource
 app.use(ejwt({
   secret: JWT_SECRET_KEY,
   getToken: function fromHeader (req) {
-    return req.cookies['woofle-token'];
+    return req.cookies['woofle-token'] || req.headers['woofle-token'];
   },
-}).unless({path: ['/auth/login', '/auth/signup', '/main.css']}));
+}).unless({path: ['/auth/login', '/auth/signup', '/main.css', '/account.js']}));
 
 app.use(express.static('public', {
   extensions: ['html']
@@ -66,6 +68,7 @@ app.use(function(req, res, next) {
 // If we're about to 401, redirect to the login page
 app.use(function(err, req, res, next) {
   if(401 == err.status) {
+    console.log(err);
     res.redirect('/auth/login');
   }
 });

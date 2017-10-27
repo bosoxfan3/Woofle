@@ -80,7 +80,7 @@
 //         .send({email: 'pingas@pingas.com', password: '1234'})
 //         .then(function(err, res) {
 //           expect(res).to.have.status(302);
-//           expect(res).to.redirect('/auth/login');
+//           expect(res).to.redirectTo('/auth/login');
 //           //not 201 here because although user is created, they are then redirected
 //           //which makes it a 302 status for 'Found'
 //         })

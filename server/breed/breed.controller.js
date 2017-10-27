@@ -37,7 +37,7 @@ function saveInputFromBreedSearch(req, res, next) {
   //of the ajax call
 }
 
-function dumbFunction(req, res, next) {
+function loadSearchBar(req, res, next) {
   res.json(breedData.dogBreedArray);
 }
 
@@ -292,5 +292,5 @@ module.exports = {
   fetchBreedData,
   showBreedPage,
   saveInputFromBreedSearch,
-  dumbFunction
+  loadSearchBar
 };

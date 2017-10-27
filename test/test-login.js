@@ -108,7 +108,7 @@
 //         .send({email, password})
 //         .then(function(err, res) {
 //           expect(res).to.have.status(200);
-//           expect(res).to.redirect('/search');
+//           expect(res).to.redirectTo('/search');
 //         })
 //         .catch(function(err) {
 //         });
@@ -120,7 +120,7 @@
 //         .send({email, password})
 //         .then(function(err, res) {
 //           expect(res).to.have.status(200);
-//           expect(res).to.redirect('/search');
+//           expect(res).to.redirectTo('/search');
 //           expect(res).to.have.cookie('woofle-token');
 //         })
 //         .catch(function(err) {

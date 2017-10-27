@@ -84,7 +84,8 @@ function login(req, res, next) {
       }, config.JWT_SECRET_KEY);
       // Set a cookie for our auth token.
       res.cookie('woofle-token', token, {maxAge: 9999999});
-      res.redirect('/search');
+      // res.redirect('/search');
+      res.status(200).send({redirect: '/search'});
     })
     .catch(err => {
       console.error(err);
