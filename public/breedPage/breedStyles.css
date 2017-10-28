@@ -1,0 +1,84 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #4AB3F4;
+}
+
+a {
+  max-width: inherit;
+  color: white;
+}
+/* This inherits the width of its parent, which in this case is the div with
+title=youtube-video-index#. Video width and height is already set in breedFrontEnd */
+
+h1 {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 40px;
+  color: white;
+}
+
+p {
+  color: white;
+  font-size: 12pt;
+  text-align: center;
+  padding-top: 10px;
+}
+
+button {
+  height: 40px;
+  width: 125px;
+  background-color: white;
+  border-color: transparent;
+  border-radius: 3px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button:hover {
+  background-color: blue;
+  border-color: blue;
+  color: white;
+}
+
+.dog-image-div {
+  width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 10px
+}
+
+.dog-image {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-color: white;
+}
+
+.dog-video-div {
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+iframe {
+  border-color: transparent;
+}
+
+div[title^="youtube"] {
+  max-width: 350px;
+  display: inline-block;
+  margin: 5px;
+}
+
+.page-bottom-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

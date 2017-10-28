@@ -1,0 +1,77 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #4AB3F4;
+}
+
+a {
+  text-decoration: underline;
+  color: white;
+}
+
+button {
+  height: 40px;
+  width: 125px;
+  background-color: white;
+  border-color: transparent;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: blue;
+  border-color: blue;
+  color: white;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  color: white;
+}
+
+.all-breeds-div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.favorite-breed {
+  border: 2px solid black;
+  width: 600px;
+  height: 60px;
+  margin: 10px auto 10px auto;
+  text-align: right;
+  position: relative;
+}
+
+.breed-title {
+  position: absolute;
+  left: 10px;
+  margin-top: 20px;
+  color: white;
+  font-size: 14pt;
+}
+
+.view-breedpage-button, .remove-button {
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.search-button, .logout-button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.search-button {
+  margin-top: 10px
+}
+
+.logout-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

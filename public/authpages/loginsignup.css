@@ -1,0 +1,145 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #4AB3F4;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  color: white;
+}
+
+.login-form {
+  width: 400px;
+  height: 450px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.signup-form {
+  width: 400px;
+  height: 450px;
+  border-radius: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+fieldset {
+  border: 0;
+}
+
+.login-form legend {
+  text-align: center;
+  font-size: 24pt;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+.signup-form legend {
+  text-align: center;
+  font-size: 24pt;
+  padding-top: 40px;
+  padding-bottom: 30px;
+}
+
+.login-form label {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 10pt;
+  text-align: left;
+  width: 320px;
+}
+
+.signup-form label {
+  display: block;
+  padding-bottom: 20px;
+  font-size: 10pt;
+  text-align: left;
+  width: 320px;
+}
+
+.login-form input {
+  height: 25px;
+  width: 290px;
+  border: 1px thin gray;
+  border-radius: 2px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 12pt;
+  display: block;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.signup-form input {
+  height: 25px;
+  width: 290px;
+  border: 1px thin gray;
+  border-radius: 2px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 12pt;
+  display: block;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.login-form button {
+  height: 55px;
+  width: 322px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12pt;
+  border-color: transparent;
+}
+
+.signup-form button {
+  height: 55px;
+  width: 322px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: green;
+  color: white;
+  border-radius: 2px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12pt;
+  border-color: transparent;
+}
+
+.login-form button:hover{
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+
+.signup-form button:hover{
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+
+.form-footer {
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+  font-size: 10pt;
+}
+
+.form-footer p, .form-footer a {
+  color: white;
+}

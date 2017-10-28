@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Woofle Login</title>
+    <link rel="stylesheet" type="text/css" href="/public/authpages/loginsignup.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+  <div class="title">
+    <h1>Woofle</h1>
+    <h4>Find pictures and videos about dog breeds</h4>
+  </div>
+  <form id="login-form" class="login-form">
+    <fieldset>
+      <legend>Log In</legend>
+      <label for="user-email">Email</label>
+      <input type="email" placeholder="foo@bar.com" name="email" id="user-email" required/>
+      <label for="user-password">Password</label>
+      <input placeholder="1234passw0rd" type="password" name="password" id="user-password" required/>
+      <button type="submit" class="js-sign-up-button">Log in</button>
+    </fieldset>
+  </form>
+    
+  <footer role="contentinfo" class="form-footer">
+    <p>Don't have an account? <a href="/auth/signup" class="js-sign-up">Sign Up</a></p>
+  </footer>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/public/authpages/loginsignup.js"></script>
+</body>
+
+</html>
