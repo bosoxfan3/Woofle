@@ -1,22 +1,15 @@
 // 'use strict';
 
-// if (!global.Promise) {
-//   global.Promise = require('q');
-// }
-// //Is this necessary? If so, why? If not, why not?
 // const {DATABASE_URL, PORT} = require('../config');
 // const chai = require('chai');
 // const chaiHttp = require('chai-http');
-// const jwt = require('jsonwebtoken');
-// //should I delete these if they aren't used. Why aren't they used?
 // const {app, runServer, closeServer} = require('../server.js');
 // const User = require('../server/user/user.model.js');
-// const {JWT_SECRET_KEY} = require('../config');
 // const expect = chai.expect;
-// chai.use(chaiHttp);
-
 // const email = 'daniel@example.com';
 // const password = '12345678';
+
+// chai.use(chaiHttp);
 
 // describe('Login endpoint with no user creation', function() {
 //   before(function () {
@@ -40,10 +33,13 @@
 //       return chai
 //         .request(app)
 //         .post('/auth/login')
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(401);
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
+//           //because 401 is an error, you don't want to console log these
+//           //errors since it will console log when it gets a 401
+//           //as intended
 //         });
 //     });
 //     it('Should reject requests with no password', function() {
@@ -51,10 +47,10 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({email})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(401);
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
 //         });
 //     });
 //     it('Should reject requests with no email', function() {
@@ -62,10 +58,10 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({password})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(401);
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
 //         });
 //     });
 //     it('Should reject incorrect email and passwords', function() {
@@ -73,10 +69,10 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({email: 'pingas@pingas.com', password: 'pingas'})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(401);
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
 //         });
 //     });
 //     it('Should reject requests with incorrect emails', function() {
@@ -84,7 +80,7 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({email: 'pingas@pingas.com', password})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(401);
 //         })
 //         .catch(function(err) {
@@ -95,7 +91,7 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({email, password: 'password'})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(401);
 //         })
 //         .catch(function(err) {
@@ -106,11 +102,11 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({email, password})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(200);
-//           expect(res).to.redirectTo('/search');
 //         })
 //         .catch(function(err) {
+//           console.log(err, 'error');
 //         });
 //     });
 //     it('Should return a valid auth token', function() {
@@ -118,12 +114,12 @@
 //         .request(app)
 //         .post('/auth/login')
 //         .send({email, password})
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(200);
-//           expect(res).to.redirectTo('/search');
 //           expect(res).to.have.cookie('woofle-token');
 //         })
 //         .catch(function(err) {
+//           console.log(err, 'error');
 //         });
 //     });
 //   });
