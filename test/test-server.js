@@ -1,22 +1,34 @@
-// 'use strict';
+'use strict';
 
-// const chai = require('chai');
-// const chaiHttp = require('chai-http');
-// const {app, runServer, closeServer} = require('../server.js');
-// const should = chai.should();
+const {DATABASE_URL, PORT} = require('../config');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const {app, runServer, closeServer} = require('../server.js');
+const expect = chai.expect;
 
-// chai.use(chaiHttp);
+chai.use(chaiHttp);
 
-// describe('Server', function() {
-//   it('should return status code 200', function (done) {
-//     chai.request(app)
-//       .get('/')
-//       .end(function (err, res) {
-//         res.should.have.status(200);
-//         done();
-//       });
+describe('Server', function() {
 
-//   });
-// });
+  before(function () {
+    return runServer(DATABASE_URL, PORT);
+  });
 
-//Uncomment later. Just doing this so it stops testing it over and over
+  after(function() {
+    return closeServer();
+  });
+
+  describe('server', function(done) {
+    it('should return status code 200', function (done) {
+      chai.request(app)
+        .get('/')
+        .then(function(res) {
+          expect(res).to.have.status(200);
+          done();
+        })
+        .catch(function(err) {
+          console.log(err, 'error');
+        });
+    });
+  });
+});
