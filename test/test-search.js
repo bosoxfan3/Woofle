@@ -1,9 +1,5 @@
 // 'use strict';
 
-// if (!global.Promise) {
-//   global.Promise = require('q');
-// }
-// //Is this necessary? If so, why? If not, why not?
 // const {DATABASE_URL, PORT} = require('../config');
 // const chai = require('chai');
 // const chaiHttp = require('chai-http');
@@ -12,12 +8,11 @@
 // const User = require('../server/user/user.model.js');
 // const {JWT_SECRET_KEY} = require('../config');
 // const expect = chai.expect;
-// chai.use(chaiHttp);
-
 // const email = 'daniel@yahoo.com';
 // const password = '1234';
-
 // let Cookie;
+
+// chai.use(chaiHttp);
 
 // describe('Search endpoint', function() {
 
@@ -52,27 +47,31 @@
 //         .request(app)
 //         .get('/breeds/all')
 //         .set('woofle-token', Cookie)
-//         .then(function(err, res) {
-//           expect(res).to.be.an('array');
+//         .then(function(res) {
+//           expect(res.body).to.be.an('array');
 //           expect(res).to.have.status(200);
 //           expect(res.body).to.have.lengthOf(121);
-//           expect(res.body).to.have.property('[0].value', 'textInput');
+//           expect(res.body[0]).to.have.property('value', 'Affenpinscher');
+//           expect(res.body[0]).to.have.property('inputText', 'Affenpinscher');
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
+//           console.log(err, 'error');
 //         });
 //     });
 //     it('should allow users to select a breed and search', function() {
 //       return chai
 //         .request(app)
-//         .get('/breeds/search/akita')
+//         .get('/breeds/fetch/akita')
 //         .set('woofle-token', Cookie)
-//         .then(function(err, res) {
-//           expect(res).to.be.an('object');
-//           expect(res).to.have.property('imageUrls', 'youTubeData');
-//           expect(res.body.imageUrls).to.be.schema({ type: 'array', minItems: 1, maxItems: 8 });
-//           expect(res.body.youTubeData).to.be.schema({ type: 'array', minItems: 1, maxItems: 5 });
+//         .then(function(res) {
+//           expect(res.body).to.be.an('object');
+//           expect(res.body.imageUrls).to.be.an('array');
+//           expect(res.body.imageUrls).to.not.be.empty;
+//           expect(res.body.youTubeData).to.be.an('array');
+//           expect(res.body.youTubeData).to.not.be.empty;
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
+//           console.log(err, 'error');
 //         });
 //     });
 //     it('should go to my favorites page when my favorites button clicked', function() {
@@ -81,10 +80,11 @@
 //         .get('/favorites')
 //         //the route doesn't need a slash even though there is one in the router
 //         .set('woofle-token', Cookie)
-//         .then(function(err, res) {
+//         .then(function(res) {
 //           expect(res).to.have.status(200);
 //         })
-//         .catch(function (err) {
+//         .catch(function(err) {
+//           console.log(err, 'error');
 //         });
 //     });
 //     it('should remove the token if the user clicks the logout button', function() {
@@ -92,12 +92,13 @@
 //         .request(app)
 //         .get('/auth/logout')
 //         .set('woofle-token', Cookie)
-//         .then(function(err, res) {
-//           expect(res).to.have.status(302);
-//           expect(res).to.redirectTo('/auth/login');
+//         .then(function(res) {
+//           expect(res).to.have.status(200);
+//           expect(res).to.redirect;
 //           expect(res).to.not.have.cookie('woofle-token');
 //         })
-//         .catch(function (err){
+//         .catch(function(err){
+//           console.log(err, 'error');
 //         }); 
 //     });
 //   });
