@@ -1,5 +1,10 @@
 'use strict';
 
+exports.fetchBreedData = fetchBreedData;
+exports.showBreedPage = showBreedPage;
+exports.saveInputFromBreedSearch = saveInputFromBreedSearch;
+exports.loadSearchBar = loadSearchBar;
+
 const _ = require('lodash');
 const breedService = require('./breed.service');
 const path = require('path');
@@ -283,11 +288,4 @@ const breedData = {
     { value: 'Yorkshire Terrier',
       inputText: 'Yorkshire Terrier' },
   ]
-};
-
-module.exports = {
-  fetchBreedData,
-  showBreedPage,
-  saveInputFromBreedSearch,
-  loadSearchBar
 };

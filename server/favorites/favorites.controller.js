@@ -1,5 +1,10 @@
 'use strict';
 
+exports.all = all;
+exports.addFavorite = addFavorite;
+exports.deleteFavorite = deleteFavorite;
+exports.showFavorites = showFavorites;
+
 const _ = require('lodash');
 const User = require('../user/user.model');
 const path = require('path');
@@ -54,10 +59,3 @@ function deleteFavorite(req, res, next) {
 function showFavorites (req, res, next) {
   res.sendFile(path.resolve('public/favoritespage/favorites.html'));
 }
-
-module.exports = {
-  all,
-  addFavorite,
-  deleteFavorite,
-  showFavorites
-};

@@ -1,5 +1,11 @@
 'use strict';
 
+exports.showSignupForm = showSignupForm;
+exports.signup = signup;
+exports.showLoginForm = showLoginForm;
+exports.login = login;
+exports.logout = logout;
+
 const jwt = require('jsonwebtoken');
 const config = require('../../config');
 const User = require('../user/user.model');
@@ -83,5 +89,3 @@ function logout(req, res, next) {
   res.redirect('/auth/login');
   //Sets the user to blank, clears the cookie, and resends you to the login page
 }
-
-module.exports = {showSignupForm, signup, showLoginForm, login, logout};
