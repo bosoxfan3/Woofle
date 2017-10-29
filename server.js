@@ -9,10 +9,9 @@ const bodyParser = require('body-parser');
 const ejwt = require('express-jwt');
 const mongoose = require('mongoose');
 const {PORT, DATABASE_URL, JWT_SECRET_KEY} = require('./config');
-
 const app = express();
 
-mongoose.Promise=global.Promise;
+mongoose.Promise = global.Promise;
 
 const authRoutes = require('./server/auth/auth.route');
 const userRoutes = require('./server/user/user.route');
@@ -28,7 +27,7 @@ app.use(cookieParser());
 
 
 
-// Authentication middleware provided by express-jwt. If you're not logged in, it says you're unauthorized.
+//Authentication middleware provided by express-jwt. If you're not logged in, it says you're unauthorized.
 //Otherwise it allows you to access the resource
 app.use(ejwt({
   secret: JWT_SECRET_KEY,
@@ -59,27 +58,12 @@ app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
 app.use('/search', function(req, res, next) {
-  // Return the main index page content
-  res.sendFile(path.resolve('public/search.html'));
+  res.sendFile(path.resolve('public/searchpage/search.html'));
 });
 
 app.use('/', function(req, res, next) {
   // So when someone goes to root it redirects to login
   res.sendFile(path.resolve('public/authpages/login.html'));
-});
-
-// Middleware to log each request and cookies. Useful while we develop.
-app.use(function(req, res, next) {
-  console.log('Handling request: ' + req.url);
-  console.log('Cookies: ' + JSON.stringify(req.cookies));
-  next();
-});
-
-// Simple middleware so we can see what req.user is on each request while we develop.
-app.use(function(req, res, next) {
-  var user = req.user;
-  console.log('current user is: ' + JSON.stringify(req.user));
-  next();
 });
 
 // If we're about to 401, redirect to the login page
@@ -89,30 +73,6 @@ app.use(function(err, req, res, next) {
     res.redirect('/auth/login');
   }
 });
-
-//------------------------------------------------------------------------------
-
-// app.use('/breeds', breeds);
-// app.use('/breeds2', breedRoutes);
-
-// catch 404 and forward to error handler
-// app.use(function(req, res, next) {
-//   var err = new Error('Not Found');
-//   err.status = 404;
-//   next(err);
-// });
-
-// error handler
-// app.use(function(err, req, res, next) {
-//   console.log(err)
-//   // set locals, only providing error in development
-//   res.locals.message = err.message;
-//   res.locals.error = req.app.get('env') === 'development' ? err : {};
-//
-//   // render the error page
-//   res.status(err.status || 500);
-//   res.render('error');
-// });
 
 let server;
 
