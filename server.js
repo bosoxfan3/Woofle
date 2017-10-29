@@ -35,9 +35,21 @@ app.use(ejwt({
   getToken: function fromHeader (req) {
     return req.cookies['woofle-token'] || req.headers['woofle-token'];
   },
-}).unless({path: ['/auth/login', '/auth/signup', '/main.css', '/account.js', '/']}));
+}).unless({path: ['/auth/login', '/auth/signup', '/loginsignup.css', '/loginsignup.js', '/']}));
 
-app.use(express.static('public', {
+app.use(express.static('public/authpages', {
+  extensions: ['html']
+}));
+
+app.use(express.static('public/breedpage', {
+  extensions: ['html']
+}));
+
+app.use(express.static('public/favoritespage', {
+  extensions: ['html']
+}));
+
+app.use(express.static('public/searchpage', {
   extensions: ['html']
 }));
 
@@ -53,7 +65,7 @@ app.use('/search', function(req, res, next) {
 
 app.use('/', function(req, res, next) {
   // So when someone goes to root it redirects to login
-  res.sendFile(path.resolve('public/login.html'));
+  res.sendFile(path.resolve('public/authpages/login.html'));
 });
 
 // Middleware to log each request and cookies. Useful while we develop.

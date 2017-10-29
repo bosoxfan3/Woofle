@@ -18,12 +18,10 @@ function getDataFromDogCEOApi(searchTerm) {
       return data.data;
     })
     .catch(err => {
-      console.log(`Error in fetching images from dog CEO ${err}`)
+      console.log(`Error in fetching images from dog CEO ${err}`);
       return Promise.reject(err);
     });
 }
-//This call is essentially the same as the front end except it is axios.get instead of
-//.getJSON
 
 //Backend API calls for YouTube
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
@@ -48,9 +46,6 @@ function getDataFromYouTubeApi(searchTerm) {
       return Promise.reject(err);
     });
 }
-//This call is essentially the same as the front end except we had to re-write the
-//query object into queryString because we couldn't just do a .getJSON 
-//and pass in the query object with axios
 
 module.exports = {
   getDataFromDogCEOApi,

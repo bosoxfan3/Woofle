@@ -1,11 +1,8 @@
 'use strict';
 
-var express = require('express');
-const expressJwt = require('express-jwt');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
 const breedController = require('./breed.controller');
-const config = require('../../config');
 
 router.route('/all')
   .get(breedController.loadSearchBar);
@@ -21,7 +18,5 @@ router.route('/search/:breedName')
 
 router.route('/fetch/:breedName')
   .get(breedController.fetchBreedData);
-
-
 
 module.exports = router;

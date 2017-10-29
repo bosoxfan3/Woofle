@@ -4,7 +4,6 @@ const _ = require('lodash');
 const User = require('../user/user.model');
 const path = require('path');
 
-//router.route('/favorites/all')
 function all(req, res, next) {
   User.getByEmail(req.user.email)
     .then((user) => {
@@ -16,7 +15,6 @@ function all(req, res, next) {
     });
 }
 
-//router.route('/favorites/:breedName')
 function addFavorite(req, res, next) {
   var breedName = req.params.breedName;
   User.getByEmail(req.user.email)
@@ -54,7 +52,7 @@ function deleteFavorite(req, res, next) {
 }
 
 function showFavorites (req, res, next) {
-  res.sendFile(path.resolve('public/favorites.html'));
+  res.sendFile(path.resolve('public/favoritespage/favorites.html'));
 }
 
 module.exports = {

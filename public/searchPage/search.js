@@ -5,16 +5,12 @@ function getAllBreedNames() {
     .done(function(data) {
       showBreedsInSelectBar(data);
     })
-    .fail(function (error) {
-      console.log(error);
+    .fail(function (err) {
+      console.log(err);
     });
 }
 
-
-
-
-function showBreedsInSelectBar(result) {
-  
+function showBreedsInSelectBar(result) { 
   let html = '<select name="selectedBreed" id="breedSearch">';
   $.each(result, function (index, value) {
     html += `<option value=${value.value}>${value.inputText}</option>`;
@@ -22,7 +18,6 @@ function showBreedsInSelectBar(result) {
   html += '</select>';
   $('#selectBar').append(html);
 }
-
 
 $('.js-search-button').click(function(event) {
   let typedInput = $('#breedSearch').val().toLowerCase();
@@ -43,8 +38,6 @@ $('.js-search-button').click(function(event) {
 //and then the .done in line 7 redirects to that url, which triggers
 //that route and it's corresponding functions on the backend
 
-//array of all breeds for random search purposes. is in all lower case to
-//match the fact that regular search value is translated to all lower case
 const dogBreedArray = ['affenpinscher', 'african', 'airedale', 'akita', 'appenzeller', 'basenji',
   'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'boston bulldog',
   'french bulldog', 'staffordshire bullterrier', 'cairn', 'chihuahua', 'chow', 'clumber',
@@ -66,6 +59,8 @@ const dogBreedArray = ['affenpinscher', 'african', 'airedale', 'akita', 'appenze
   'patterdale terrier', 'scottish terrier', 'sealyham terrier', 'silky terrier', 'tibetan terrier',
   'toy terrier', 'westhighland terrier', 'wheaten terrier', 'yorkshire terrier', 'vizsla',
   'weimaraner', 'whippet', 'irish wolfhound'];
+//array of all breeds for random search purposes. is in all lower case to
+//match the fact that regular search value is translated to all lower case
 
 $('.js-random-search-button').click(function(event) {
   let randomBreed = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];

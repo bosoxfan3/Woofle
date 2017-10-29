@@ -1,11 +1,8 @@
 'use strict';
 
 const express = require('express');
-const expressJwt = require('express-jwt');
 const router = express.Router();
-
 const favoritesController = require('./favorites.controller');
-const config = require('../../config');
 
 router.route('/all')
   .get(favoritesController.all);

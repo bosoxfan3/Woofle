@@ -78,7 +78,7 @@ describe('Favorites endpoint', function() {
     it('should go to the specific breed\'s page if that button is clicked', function() {
       return chai
         .request(app)
-        .get('/breeds/eskimo')
+        .get('/breeds/search/eskimo')
         .set('woofle-token', Cookie)
         .then(function(res) {
           expect(res).to.have.status(200);

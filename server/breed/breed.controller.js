@@ -15,7 +15,6 @@ function fetchBreedData(req, res, next) {
       return res.json({imageUrls, youTubeData});
     })
     .catch(err => {
-      console.error(err);
       res.status(500).json({message: 'Internal server error'});
     });
 }
@@ -24,9 +23,7 @@ function fetchBreedData(req, res, next) {
 //in the browser you will see the two objects that are returned in line 15
 
 function showBreedPage(req, res, next) {
-  res.sendFile(path.resolve('public/breed.html'));
-  //Brings up the breeds/specificdog page which then instantly starts
-  //the frontend API calls
+  res.sendFile(path.resolve('public/breedpage/breed.html'));
 }
 
 function saveInputFromBreedSearch(req, res, next) {
