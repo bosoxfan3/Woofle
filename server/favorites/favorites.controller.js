@@ -10,7 +10,7 @@ const User = require('../user/user.model');
 const path = require('path');
 
 function all(req, res, next) {
-  User.getByEmail(req.user.email)
+  User.getUserByEmail(req.user.email)
     .then((user) => {
       res.json(user.favorites);
     })
@@ -22,7 +22,7 @@ function all(req, res, next) {
 
 function addFavorite(req, res, next) {
   var breedName = req.params.breedName;
-  User.getByEmail(req.user.email)
+  User.getUserByEmail(req.user.email)
     .then((user) => {
       user.favorites.push(breedName);
       user.favorites = _.uniq(user.favorites);
@@ -39,7 +39,7 @@ function addFavorite(req, res, next) {
 
 function deleteFavorite(req, res, next) {
   var breedName = req.params.breedName;
-  User.getByEmail(req.user.email)
+  User.getUserByEmail(req.user.email)
     .then((user) => {
       const breedIndex = user.favorites.indexOf(breedName);
       if (breedIndex > -1) {

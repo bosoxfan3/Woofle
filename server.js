@@ -14,7 +14,6 @@ const app = express();
 mongoose.Promise = global.Promise;
 
 const authRoutes = require('./server/auth/auth.route');
-const userRoutes = require('./server/user/user.route');
 const breedRoutes = require('./server/breed/breed.route');
 const favoritesRoutes = require('./server/favorites/favorites.route');
 
@@ -24,8 +23,6 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-
 
 //Authentication middleware provided by express-jwt. If you're not logged in, it says you're unauthorized.
 //Otherwise it allows you to access the resource
@@ -53,13 +50,8 @@ app.use(express.static('public/searchpage', {
 }));
 
 app.use('/auth', authRoutes);
-app.use('/users', userRoutes);
 app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
-
-app.use('/search', function(req, res, next) {
-  res.sendFile(path.resolve('public/searchpage/search.html'));
-});
 
 app.use('/', function(req, res, next) {
   // So when someone goes to root it redirects to login

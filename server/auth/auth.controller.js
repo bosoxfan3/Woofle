@@ -32,8 +32,7 @@ function signup(req, res, next) {
       }
       User.create({email, password})
       //create is usable even though it isn't a defined function in user.model
-      //because .create is a mongoose method. You export the userSchema as a 
-      //mongoose based model at the bottom of user.model.js
+      //because .create is a mongoose method.
         .then(user => res.redirect('/auth/login'))
         .catch(err => {
           if (err.code === 11000) {
@@ -54,10 +53,7 @@ function showLoginForm(req, res, next) {
 
 function login(req, res, next) {
   const { email, password } = req.body;
-  if (!email) {
-    return res.status(401).send();
-  }
-  if (!password) {
+  if (!email || !password) {
     return res.status(401).send();
   }
   User.findOne({email, password})
@@ -87,5 +83,4 @@ function logout(req, res, next) {
   req.user = null;
   res.clearCookie('woofle-token');
   res.redirect('/auth/login');
-  //Sets the user to blank, clears the cookie, and resends you to the login page
 }

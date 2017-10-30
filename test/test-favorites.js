@@ -21,7 +21,7 @@ describe('Favorites endpoint', function() {
   });
 
   beforeEach(function(done) {
-    User.getByEmail('daniel@gmail.com')
+    User.getUserByEmail('daniel@gmail.com')
       .then(function(user) {
         chai.request(app)
           .post('/auth/login')
@@ -34,7 +34,7 @@ describe('Favorites endpoint', function() {
   }); 
 
   afterEach(function(done) {
-    User.getByEmail('daniel@gmail.com')
+    User.getUserByEmail('daniel@gmail.com')
       .then(function(user) {
         chai.request(app)
           .post('/api/favorites/eskimo')
