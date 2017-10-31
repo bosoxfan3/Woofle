@@ -16,8 +16,7 @@ userSchema.statics = {
       .exec()
       .then((user) => {
         if (user) {
-          Promise.resolve(user);
-          return user;
+          return Promise.resolve(user);
         }
         const err = new Error('user does not exist');
         return Promise.reject(err);
