@@ -46,22 +46,6 @@ describe('Favorites endpoint', function() {
   });
 
   describe('Favorites page', function() {
-    it('should remove the token if the user clicks the logout button', function() {
-      return chai
-        .request(app)
-        .get('/auth/logout')
-        .set('woofle-token', Cookie)
-        .then(function(res) {
-          expect(res).to.have.status(200);
-          //because it ultimately redirects to login the res
-          //is status 200 for successful get of /auth/login
-          expect(res).to.redirect;
-          expect(res).to.not.have.cookie('woofle-token');
-        })
-        .catch(function(err){
-          console.log(err, 'error');
-        }); 
-    });
     it('should go to search page when the search button is clicked', function() {
       return chai
         .request(app)
@@ -115,6 +99,22 @@ describe('Favorites endpoint', function() {
         .catch(function(err) {
           console.log(err, 'error');
         });
+    });
+    it('should remove the token if the user clicks the logout button', function() {
+      return chai
+        .request(app)
+        .get('/auth/logout')
+        .set('woofle-token', Cookie)
+        .then(function(res) {
+          expect(res).to.have.status(200);
+          //because it ultimately redirects to login the res
+          //is status 200 for successful get of /auth/login
+          expect(res).to.redirect;
+          expect(res).to.not.have.cookie('woofle-token');
+        })
+        .catch(function(err){
+          console.log(err, 'error');
+        }); 
     });
   });
 });
