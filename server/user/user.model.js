@@ -12,15 +12,15 @@ userSchema.statics = {
   getUserByEmail(email) {
     return this.findOne({
       email
-    })
-      .exec()
-      .then((user) => {
-        if (user) {
-          return Promise.resolve(user);
-        }
-        const err = new Error('user does not exist');
-        return Promise.reject(err);
-      });
+    });
+      // .exec()
+      // .then((user) => {
+      //   if (user) {
+      //     return Promise.resolve(user);
+      //   }
+      //   const err = new Error('user does not exist');
+      //   return Promise.reject(err);
+      // });
   },
 };
 
