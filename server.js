@@ -62,8 +62,13 @@ app.use('/', function(req, res, next) {
 app.use(function(err, req, res, next) {
   if(401 == err.status) {
     console.log(err);
-    res.redirect('/auth/login');
+    return res.redirect('/auth/login');
   }
+  if (11000 == err.code) {
+    console.log(err);
+    return res.redirect('/auth/login');
+  }
+  return res.status(500).json({message: 'Internal server error'});
 });
 
 let server;
