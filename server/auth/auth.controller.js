@@ -34,15 +34,7 @@ function signup(req, res, next) {
       //create is usable even though it isn't a defined function in user.model
       //because .create is a mongoose method.
         .then(user => res.redirect('/auth/login'))
-        .catch(err => {
-          if (err.code === 11000) {
-          // Duplicate key error, already exists
-            res.redirect('/auth/login');
-            return;
-          }
-          res.status(500).json({message: 'Internal server error'});
-          // res.redirect('/auth/login');
-        });
+        .catch(err => next(err));
     });
 }
 
