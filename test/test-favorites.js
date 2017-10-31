@@ -13,6 +13,7 @@ chai.use(chaiHttp);
 describe('Favorites endpoint', function() {
 
   before(function () {
+    
     return runServer(DATABASE_URL, PORT);
   });
 
@@ -23,6 +24,7 @@ describe('Favorites endpoint', function() {
   beforeEach(function(done) {
     User.getUserByEmail('daniel@gmail.com')
       .then(function(user) {
+        console.log(user, 'user before each')
         chai.request(app)
           .post('/auth/login')
           .send({email: user.email, password: user.password})
@@ -30,18 +32,26 @@ describe('Favorites endpoint', function() {
             Cookie = res.headers['set-cookie'].pop().split(';')[0].substr(13);
             done();
           });
+      })
+      .catch(function(err) {
+        console.log(err, 'error before each');
       });
   }); 
 
   afterEach(function(done) {
+    // this.timeout(10000);
     User.getUserByEmail('daniel@gmail.com')
       .then(function(user) {
+        console.log(user, 'user after each')
         chai.request(app)
           .post('/api/favorites/eskimo')
           .set('woofle-token', Cookie)
           .end(function(err, res) {
             done();
           });
+      })
+      .catch(function(err) {
+        console.log(err, 'error after each');
       });
   });
 
@@ -99,22 +109,6 @@ describe('Favorites endpoint', function() {
         .catch(function(err) {
           console.log(err, 'error');
         });
-    });
-    it('should remove the token if the user clicks the logout button', function() {
-      return chai
-        .request(app)
-        .get('/auth/logout')
-        .set('woofle-token', Cookie)
-        .then(function(res) {
-          expect(res).to.have.status(200);
-          //because it ultimately redirects to login the res
-          //is status 200 for successful get of /auth/login
-          expect(res).to.redirect;
-          expect(res).to.not.have.cookie('woofle-token');
-        })
-        .catch(function(err){
-          console.log(err, 'error');
-        }); 
     });
   });
 });
