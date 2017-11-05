@@ -53,9 +53,9 @@ app.use('/auth', authRoutes);
 app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
-app.use('/search', function(req, res, next) {
-  res.sendFile(path.resolve('public/searchpage/search.html'));
-});
+// app.use('/search', function(req, res, next) {
+//   res.sendFile(path.resolve('public/searchpage/search.html'));
+// });
 
 app.use('/', function(req, res, next) {
   // So when someone goes to root it redirects to login
