@@ -31,6 +31,11 @@ app.get('/api/dir/', function(req, res, next) {
     path3: path.join(__dirname, 'public/authpages/'),
     path4: path.join(__dirname, './public/authpages/'),
     path5: path.join(__dirname, '../public/authpages/'),
+    path6: path.resolve(__dirname, '/public/authpages/'),
+    path7: path.resolve(__dirname, '/public/authpages'),
+    path8: path.resolve(__dirname, 'public/authpages/'),
+    path9: path.resolve(__dirname, './public/authpages/'),
+    path0: path.resolve(__dirname, '../public/authpages/'),
     dirname: __dirname
   });
 });
@@ -48,7 +53,9 @@ app.use(ejwt({
 //   res.sendFile(path.resolve(path.join(__dirname, './public/searchpage/search.html'));
 // });
 
-
+app.get('/search', function(req, res, next) {
+  res.sendFile(path.resolve('public/searchpage/search.html'));
+});
 
 app.use(express.static(path.join(__dirname, 'public/authpages'), {
   extensions: ['html']
