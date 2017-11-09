@@ -34,22 +34,22 @@ app.use(ejwt({
 }).unless({path: ['/auth/login', '/auth/signup', '/loginsignup.css', '/loginsignup.js', '/']}));
 
 // app.use('/search', function(req, res, next) {
-//   res.sendFile(path.resolve('public/searchpage/search.html'));
+//   res.sendFile(path.resolve('./public/searchpage/search.html'));
 // });
 
-app.use(express.static('public/authpages', {
+app.use(express.static('./public/authpages', {
   extensions: ['html']
 }));
 
-app.use(express.static('public/breedpage', {
+app.use(express.static('./public/breedpage', {
   extensions: ['html']
 }));
 
-app.use(express.static('public/favoritespage', {
+app.use(express.static('./public/favoritespage', {
   extensions: ['html']
 }));
 
-app.use(express.static('public/searchpage', {
+app.use(express.static('./public/searchpage', {
   extensions: ['html']
 }));
 
@@ -61,7 +61,7 @@ app.use('/api/favorites', favoritesRoutes);
 
 app.use('/', function(req, res, next) {
   // So when someone goes to root it redirects to login
-  res.sendFile(path.resolve('public/authpages/login.html'));
+  res.sendFile(path.resolve('./public/authpages/login.html'));
 });
 
 // If we're about to 401, redirect to the login page
