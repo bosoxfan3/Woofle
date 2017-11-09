@@ -33,9 +33,9 @@ app.use(ejwt({
   },
 }).unless({path: ['/auth/login', '/auth/signup', '/loginsignup.css', '/loginsignup.js', '/']}));
 
-app.use('/search', function(req, res, next) {
-  res.sendFile(path.resolve('public/searchpage/search.html'));
-});
+// app.use('/search', function(req, res, next) {
+//   res.sendFile(path.resolve('public/searchpage/search.html'));
+// });
 
 app.use(express.static('public/authpages', {
   extensions: ['html']
