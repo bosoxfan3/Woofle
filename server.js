@@ -33,6 +33,10 @@ app.use(ejwt({
   },
 }).unless({path: ['/auth/login', '/auth/signup', '/loginsignup.css', '/loginsignup.js', '/']}));
 
+app.use('/search', function(req, res, next) {
+  res.sendFile(path.resolve('public/searchpage/search.html'));
+});
+
 app.use(express.static('public/authpages', {
   extensions: ['html']
 }));
@@ -53,9 +57,7 @@ app.use('/auth', authRoutes);
 app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
-// app.use('/search', function(req, res, next) {
-//   res.sendFile(path.resolve('public/searchpage/search.html'));
-// });
+
 
 app.use('/', function(req, res, next) {
   // So when someone goes to root it redirects to login
