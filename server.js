@@ -47,7 +47,7 @@ app.use(ejwt({
   getToken: function fromHeader (req) {
     return req.cookies['woofle-token'] || req.headers['woofle-token'];
   },
-}).unless({path: ['/auth/login', '/auth/signup', 'public/loginsignup.css', 'public/loginsignup.js', '/']}));
+}).unless({path: ['/auth/login', '/auth/signup', 'public/authpages/loginsignup.css', 'public/authpages/loginsignup.js', '/']}));
 
 // app.use('/search', function(req, res, next) {
 //   res.sendFile(path.resolve(path.join(__dirname, './public/searchpage/search.html'));
