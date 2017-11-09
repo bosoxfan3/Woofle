@@ -24,6 +24,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.get('/api/dir/', function(req, res, next) {
+  res.send({
+    path: path.join(__dirname, '/public/authpages/'),
+    path2: path.join(__dirname, '/public/authpages'),
+    path3: path.join(__dirname, 'public/authpages/'),
+    path4: path.join(__dirname, './public/authpages/'),
+    path5: path.join(__dirname, '../public/authpages/'),
+    dirname: __dirname
+  });
+});
+
 //Authentication middleware provided by express-jwt. If you're not logged in, it says you're unauthorized.
 //Otherwise it allows you to access the resource
 app.use(ejwt({
@@ -36,6 +47,8 @@ app.use(ejwt({
 // app.use('/search', function(req, res, next) {
 //   res.sendFile(path.resolve(path.join(__dirname, './public/searchpage/search.html'));
 // });
+
+
 
 app.use(express.static(path.join(__dirname, 'public/authpages'), {
   extensions: ['html']
