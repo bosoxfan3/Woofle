@@ -54,7 +54,7 @@ app.use(ejwt({
 // });
 
 app.get('/search', function(req, res, next) {
-  res.send(path.resolve('public/searchpage/search.html'));
+  res.sendFile(path.resolve('public/searchpage/search/index.html'));
 });
 
 app.use(express.static(path.join(__dirname, 'public/authpages'), {
