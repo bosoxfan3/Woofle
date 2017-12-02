@@ -4,7 +4,7 @@
   "description": "view and save videos and pictures of dog breeds",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "test": "mocha"
   },
   "dependencies": {
