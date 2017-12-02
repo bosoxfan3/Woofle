@@ -27,7 +27,7 @@ function fetchBreedData(req, res, next) {
 //in the browser you will see the two objects that are returned in line 15
 
 function showBreedPage(req, res, next) {
-  res.sendFile(path.resolve('public/breed/index.html'));
+  res.sendFile(path.resolve('public-secure/breed/index.html'));
 }
 
 function loadSearchBar(req, res, next) {

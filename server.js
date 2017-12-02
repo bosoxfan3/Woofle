@@ -38,13 +38,15 @@ app.use(ejwt({
   },
 }));
 
+// PROTECTED FROM NOW ON. 
+
 app.use(express.static('public-secure'))
 app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
 
-// TODO: ADD 404 route
-// // If we're about to 401, redirect to the login page
+
+// If we're about to 401, redirect to the login page
 // app.use(function(err, req, res, next) {
 //   if(401 == err.status) {
 //     console.log(err);

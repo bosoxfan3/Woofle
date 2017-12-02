@@ -3,10 +3,11 @@
 function drawFavoritesList(favorites) {
   let html = '';
   $.each(favorites, function (index, value) {
+    console.log(value)
     html += '<div class="favorite-breed">';
     html += '<p class="breed-title">' + value.toUpperCase() + '</p>';
     // html += '<a class="breed-link" href="/breeds/' + value + '">' + value.toUpperCase() + "</a>";
-    html += '<button class="view-breedpage-button" type="button" onclick="goToSpecificBreedPage(\'' + value + '\');">View Breed</button>';
+    html += '<a href="/breeds/'+value+'" class="view-breedpage-button" type="button">View Breed</a>';
     html += '<button class="remove-button" type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
     html += '</div>';
   });
@@ -41,15 +42,3 @@ $('.js-log-out-button').click(function(event) {
   window.location.href = '/auth/logout';
 });
 
-function goToSpecificBreedPage(breedName) {
-  $.ajax({
-    url: '/breeds/search/' + breedName,
-    method: 'GET',
-  })
-    .done(function (done) {
-      window.location.href = done.url;
-    })
-    .fail(function (fail) {
-      console.log(fail);
-    });
-}

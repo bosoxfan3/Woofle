@@ -30,6 +30,9 @@ p {
 }
 
 button {
+  /*color: black;
+  text-align: center;
+  vertical-align: center;*/
   height: 40px;
   width: 125px;
   background-color: white;

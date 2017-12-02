@@ -28,7 +28,7 @@ function signup(req, res, next) {
       User.create({email, password})
       //create is usable even though it isn't a defined function in user.model
       //because .create is a mongoose method.
-        .then(user => res.redirect('/auth/login'))
+        .then(user => res.json({url:'/auth/login.html'}))
         .catch(err => next(err));
     });
 }
@@ -64,5 +64,5 @@ function login(req, res, next) {
 function logout(req, res, next) {
   req.user = null;
   res.clearCookie('woofle-token');
-  res.redirect('/auth/login');
+  res.redirect('/auth/login.html');
 }
