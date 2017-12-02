@@ -1,8 +1,6 @@
 'use strict';
 
-exports.showSignupForm = showSignupForm;
 exports.signup = signup;
-exports.showLoginForm = showLoginForm;
 exports.login = login;
 exports.logout = logout;
 
@@ -11,9 +9,6 @@ const config = require('../../config');
 const User = require('../user/user.model');
 const path = require('path');
 
-function showSignupForm(req, res, next) {
-  res.sendFile(path.resolve('public/authpages/signup.html'));
-}
 
 function signup(req, res, next) {
   const { email, password } = req.body;
@@ -33,14 +28,9 @@ function signup(req, res, next) {
       User.create({email, password})
       //create is usable even though it isn't a defined function in user.model
       //because .create is a mongoose method.
-        .then(user => res.redirect('/auth/login'))
+        .then(user => res.json({url:'/auth/login.html'}))
         .catch(err => next(err));
     });
-}
-
-
-function showLoginForm(req, res, next) {
-  res.sendFile(path.resolve('public/authpages/login.html'));
 }
 
 function login(req, res, next) {
@@ -74,5 +64,5 @@ function login(req, res, next) {
 function logout(req, res, next) {
   req.user = null;
   res.clearCookie('woofle-token');
-  res.redirect('/auth/login');
+  res.redirect('/auth/login.html');
 }

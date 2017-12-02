@@ -59,18 +59,3 @@ $('.js-add-to-favorites-button').click(event => {
       console.log(fail);
     });
 });
-
-$('.js-log-out-button').click(function(event) {
-  window.location.href = '/auth/logout';
-});
-
-$('.js-go-to-search-button').click(function(event) {
-  window.location.href = '/search';
-});
-
-$('.js-view-favorites-button').click(function(event) {
-  window.location.href = '/api/favorites';
-  //This triggers a move to the api/favorites('/') route which calls showFavorites.
-  //Show favorites is a function that loads the favorites HTML page. This then
-  //triggers the favorites.js which finds the user and shows the favorites
-});

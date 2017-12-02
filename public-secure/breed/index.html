@@ -5,26 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Woofle Breed Page</title>
-  <link rel="stylesheet" type="text/css" href="/breed.css">
+  <link rel="stylesheet" type="text/css" href="/breed/breed.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
 <body>
   <div class="js-breed-page">
     <h1></h1>
-    <button type="button" class="js-add-to-favorites-button">Add To Favorites</button>
+    <button type="button" class="button js-add-to-favorites-button">Add To Favorites</button>
     <p></p>
     <div class="js-images-div dog-image-div">
     </div>
     <div class="js-videos-div dog-video-div">
     </div>
   </div>
-  <button type="button" class="js-go-to-search-button page-bottom-button">Back to Search</button>
-  <button type="button" class="js-view-favorites-button page-bottom-button">View Favorites</button>
-  <button type="button" class="js-log-out-button page-bottom-button">Log Out</button>
+  <a href="/search" class="page-bottom-button">
+    <button>Back to Search</button>
+  </a>
+  <br />
+  <a href="/favorites" class="page-bottom-button">
+    <button>View Favorites</button>
+  </a>
+  <br />
+  <a href="/auth/logout" class="page-bottom-button">
+    <button>Log Out</button>
+  </a>
 
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/breed.js"></script>
+  <script type="text/javascript" src="/breed/breed.js"></script>
 </body>
 </html>

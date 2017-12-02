@@ -3,7 +3,6 @@
 exports.all = all;
 exports.addFavorite = addFavorite;
 exports.deleteFavorite = deleteFavorite;
-exports.showFavorites = showFavorites;
 
 const _ = require('lodash');
 const User = require('../user/user.model');
@@ -54,8 +53,4 @@ function deleteFavorite(req, res, next) {
       console.error(err);
       res.status(500).json({message: 'Internal server error'});
     });
-}
-
-function showFavorites (req, res, next) {
-  res.sendFile(path.resolve('public/favoritespage/favorites.html'));
 }

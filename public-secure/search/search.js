@@ -21,18 +21,13 @@ function showBreedsInSelectBar(result) {
 
 $('.js-search-button').click(function(event) {
   let typedInput = $('#breedSearch').val().toLowerCase();
-  $.ajax({
-    url: '/breeds/search/' + typedInput,
-    method: 'GET',
-  })
-    .done(function (done) {
-      window.location.href = done.url;
-    })
-    .fail(function (fail) {
-      console.log(fail);
-    });
-  $('#breedSearch').val('');
+   window.location.href = `/breeds/${typedInput}`;
 });
+$('.js-random-search-button').click(function(event) {
+  let randomBreed = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];
+  window.location.href = `/breeds/${randomBreed}`;  
+});
+
 //makes call to breeds/search/:breedName route on the backend.
 //then uses the saveInputFromBreedSearch backend function to return a url
 //and then the .done in line 7 redirects to that url, which triggers
@@ -61,30 +56,6 @@ const dogBreedArray = ['affenpinscher', 'african', 'airedale', 'akita', 'appenze
   'weimaraner', 'whippet', 'irish wolfhound'];
 //array of all breeds for random search purposes. is in all lower case to
 //match the fact that regular search value is translated to all lower case
-
-$('.js-random-search-button').click(function(event) {
-  let randomBreed = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];
-  $.ajax({
-    url: '/breeds/search/' + randomBreed,
-    method: 'GET',
-  })
-    .done(function (done) {
-      window.location.href = done.url;
-    })
-    .fail(function (fail) {
-      console.log(fail);
-    });
-  $('#breedSearch').val('');  
-});
-//same function as above, just with randomized dog breed
-
-$('.js-view-favorites-button').click(function(event) {
-  window.location.href = 'favorites';
-});
-
-$('.js-log-out-button').click(function(event) {
-  window.location.href = '/auth/logout';
-});
 
 $(document).ready(function() {
   getAllBreedNames();

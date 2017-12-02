@@ -10,6 +10,4 @@ router.route('/:breedName')
   .post(favoritesController.addFavorite)
   .delete(favoritesController.deleteFavorite);
 
-router.get('/', favoritesController.showFavorites);
-
 module.exports = router;

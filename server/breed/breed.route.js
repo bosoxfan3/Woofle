@@ -10,9 +10,6 @@ router.get('/all', breedController.loadSearchBar);
 //(/all) was a substitute for breedName
 
 router.get('/:breedName', breedController.showBreedPage);
-
-router.get('/search/:breedName', breedController.saveInputFromBreedSearch);
-
 router.get('/fetch/:breedName', breedController.fetchBreedData);
 
 module.exports = router;
