@@ -2,7 +2,6 @@
 
 exports.fetchBreedData = fetchBreedData;
 exports.showBreedPage = showBreedPage;
-exports.saveInputFromBreedSearch = saveInputFromBreedSearch;
 exports.loadSearchBar = loadSearchBar;
 
 const _ = require('lodash');
@@ -28,15 +27,7 @@ function fetchBreedData(req, res, next) {
 //in the browser you will see the two objects that are returned in line 15
 
 function showBreedPage(req, res, next) {
-  res.sendFile(path.resolve('public/breedpage/breed.html'));
-}
-
-function saveInputFromBreedSearch(req, res, next) {
-  res.json({url: '/breeds/' + req.params.breedName});
-  //When the breed is searched, this saves the breed that is input
-  //and returns the url to the breeds/specificdog page. The switch to the
-  //specific page is then taken care of on the front end with the .done part
-  //of the ajax call
+  res.sendFile(path.resolve('public/breed/index.html'));
 }
 
 function loadSearchBar(req, res, next) {
