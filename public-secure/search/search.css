@@ -7,12 +7,59 @@ body {
   background-color: #4AB3F4;
 }
 
+.nav {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  display: block;
+  background-color: turquoise;
+}
+
+.title {
+  font-family: 'Cuprum';
+  display: inline-block;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.logo {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 20px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.home-link {
+  display: inline-block;
+}
+
+.site-links {
+  float: right;
+  padding-top: 10px;
+}
+
+.site-links a {
+  color: white;
+  text-decoration: none;
+  padding-right: 10px;
+}
+
+.main-section {
+  padding-top: 30px;
+}
+
 h1 {
   display: block;
   text-align: center;
   padding-bottom: 40px;
   padding-top: 40px;
   color: white;
+  font-family: 'Cuprum';
 }
 
 select {

@@ -26,6 +26,11 @@ body {
   font-family: 'Cuprum';
 }
 
+.dog-image {
+  float: left;
+  border-radius: 50%;
+}
+
 .logo {
   border-radius: 50%;
   border: 2px solid black;
@@ -37,26 +42,23 @@ p {
   font-size: 20px;
 }
 
-.section-1, .section-3 {
-  height: 100px;
+.section {
   background-color: lightgray;
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: left;
 }
 
-.section-2 {
-  background-color: lightgray;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  text-align: right;
-}
-
 .links {
   text-align: center;
+  color: white;
 }
 
 .login-link, .signup-link {
   display: inline-block;
   margin: 5px;
+}
+
+a {
+  color: white;
 }
