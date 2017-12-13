@@ -72,5 +72,5 @@ function login(req, res, next) {
 function logout(req, res, next) {
   req.user = null;
   res.clearCookie('woofle-token');
-  res.redirect('/auth/login.html');
+  res.redirect('/index.html');
 }
