@@ -80,7 +80,6 @@ describe('Signup endpoint', function() {
           expect(res).to.redirect;
         })
         .catch(function(err) {
-          console.log(err, 'error');
         });
     });
   });

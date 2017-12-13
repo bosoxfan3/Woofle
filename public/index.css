@@ -1,0 +1,62 @@
+* {
+  font-family: Roboto;
+  margin: 0px auto;
+}
+
+body {
+  background-color: #4AB3F4;
+}
+
+.title-section {
+  display: block;
+  text-align: center;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  color: white;
+}
+
+.title {
+  font-size: 50px;
+  font-family: 'Cuprum';
+  display: inline-block;
+}
+
+.subtitle {
+  font-size: 25px;
+  font-family: 'Cuprum';
+}
+
+.logo {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 40px;
+  display: inline-block;
+}
+
+p {
+  font-size: 20px;
+}
+
+.section-1, .section-3 {
+  height: 100px;
+  background-color: lightgray;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: left;
+}
+
+.section-2 {
+  background-color: lightgray;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.links {
+  text-align: center;
+}
+
+.login-link, .signup-link {
+  display: inline-block;
+  margin: 5px;
+}

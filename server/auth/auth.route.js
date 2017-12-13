@@ -6,9 +6,11 @@ const router = express.Router();
 const authController = require('./auth.controller');
 
 router.route('/signup')
+  .get(authController.getSignupPage)
   .post(authController.signup);
   
 router.route('/login')
+  .get(authController.getLoginPage)
   .post(authController.login);
 
 

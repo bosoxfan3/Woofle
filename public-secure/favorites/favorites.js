@@ -6,9 +6,8 @@ function drawFavoritesList(favorites) {
     console.log(value)
     html += '<div class="favorite-breed">';
     html += '<p class="breed-title">' + value.toUpperCase() + '</p>';
-    // html += '<a class="breed-link" href="/breeds/' + value + '">' + value.toUpperCase() + "</a>";
-    html += '<a href="/breeds/'+value+'" class="view-breedpage-button" type="button">View Breed</a>';
-    html += '<button class="remove-button" type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
+    html += '<input class="button view-breedpage-button" type="button" onclick="location.href=`/breeds/'+value+'`;" value="View Breed" />';
+    html += '<button class="button remove-button" type="button" onclick="doRemoveFavorite(\'' + value +  '\');">Remove</button>';
     html += '</div>';
   });
   $('.js-favorites-div').html(html);
@@ -33,12 +32,3 @@ function getFavorites() {
 }
 getFavorites();
 //This gets called as soon as the html page is loaded.
-
-$('.js-go-to-search-button').click(function(event) {
-  window.location.href = '/search';
-});
-
-$('.js-log-out-button').click(function(event) {
-  window.location.href = '/auth/logout';
-});
-

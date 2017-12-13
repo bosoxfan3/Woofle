@@ -24,7 +24,7 @@ select {
   display: block;
 }
 
-button {
+.button {
   height: 40px;
   width: 125px;
   background-color: white;
@@ -32,7 +32,7 @@ button {
   border-radius: 3px;
 }
 
-button:hover {
+.button:hover {
   background-color: blue;
   border-color: blue;
   color: white;
@@ -53,4 +53,6 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

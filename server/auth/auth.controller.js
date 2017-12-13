@@ -1,5 +1,7 @@
 'use strict';
 
+exports.getSignupPage = getSignupPage;
+exports.getLoginPage = getLoginPage;
 exports.signup = signup;
 exports.login = login;
 exports.logout = logout;
@@ -9,6 +11,13 @@ const config = require('../../config');
 const User = require('../user/user.model');
 const path = require('path');
 
+function getSignupPage(req, res, next) {
+  res.sendFile(path.resolve('public/auth/signup.html'));
+}
+
+function getLoginPage(req, res, next) {
+  res.sendFile(path.resolve('public/auth/login.html'));
+}
 
 function signup(req, res, next) {
   const { email, password } = req.body;
@@ -59,7 +68,6 @@ function login(req, res, next) {
       res.status(500).json({message: 'Internal server error'});
     });
 }
-
 
 function logout(req, res, next) {
   req.user = null;

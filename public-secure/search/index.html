@@ -15,13 +15,11 @@
     </div>
     <br>
     <div class="search-buttons">
-      <button class="js-search-button inline-search-button" type="submit">Search</button>
-      <button class="js-random-search-button inline-search-button" type="button">Find A Random Breed</button>
+      <button class="js-search-button button inline-search-button" type="submit">Search</button>
+      <button class="js-random-search-button button inline-search-button" type="button">Find A Random Breed</button>
     </div>
-    <br>
-    <button class="js-view-favorites-button fav-button" href="/favorites">View My Favorites</button>
-    <br>
-    <button class="js-log-out-button logout-button" href="/auth/logout">Log Out</button>
+    <input class="button fav-button" type="button" onclick="location.href='/favorites';" value="View My Favorites" />
+    <input class="button logout-button" type="button" onclick="location.href='/auth/logout';" value="Log Out" />
 
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

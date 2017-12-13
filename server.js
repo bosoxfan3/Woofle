@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use('/auth', authRoutes);
 
 // Authentication middleware provided by express-jwt. 
@@ -40,24 +40,27 @@ app.use(ejwt({
 
 // PROTECTED FROM NOW ON. 
 
-app.use(express.static('public-secure'))
+app.use(express.static('public-secure'));
 app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
 
+app.use('/', function(req, res, next) {
+  // So when someone goes to root it redirects to landing page
+  res.sendFile(path.resolve('public/index.html'));
+});
 
-
-// If we're about to 401, redirect to the login page
-// app.use(function(err, req, res, next) {
-//   if(401 == err.status) {
-//     console.log(err);
-//     return res.redirect('/auth/login');
-//   }
-//   if (11000 == err.code) {
-//     console.log(err);
-//     return res.redirect('/auth/login');
-//   }
-//   return res.status(500).json({message: 'Internal server error'});
-// });
+//If we're about to 401, redirect to the login page
+app.use(function(err, req, res, next) {
+  if(401 == err.status) {
+    console.log(err);
+    return res.redirect('/');
+  }
+  if (11000 == err.code) {
+    console.log(err);
+    return res.redirect('/auth/login');
+  }
+  return res.status(500).json({message: 'Internal server error'});
+});
 
 let server;
 

@@ -21,7 +21,7 @@ function showBreedsInSelectBar(result) {
 
 $('.js-search-button').click(function(event) {
   let typedInput = $('#breedSearch').val().toLowerCase();
-   window.location.href = `/breeds/${typedInput}`;
+  window.location.href = `/breeds/${typedInput}`;
 });
 $('.js-random-search-button').click(function(event) {
   let randomBreed = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];
@@ -60,7 +60,3 @@ const dogBreedArray = ['affenpinscher', 'african', 'airedale', 'akita', 'appenze
 $(document).ready(function() {
   getAllBreedNames();
 });
-
-
-
-
