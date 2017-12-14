@@ -12,27 +12,30 @@
 </head>
 
 <body>
-  <div class="title-section">
-    <h1 class="title">Woofle</h1>
-    <img class="logo" src="https://i.pinimg.com/736x/5e/ae/d0/5eaed0f1541f54012ae46f554b5c45e6--dog-paw-prints-car-stickers.jpg" >    
-    <h4 class="subtitle">Find Pictures and Videos Of Dog Breeds</h4>
+  <div class="row">
+    <div class="col-12">
+      <div class="title-section">
+        <a href="/">
+          <h1 class="title">Woofle</h1>
+          <img class="logo" src="https://i.pinimg.com/736x/5e/ae/d0/5eaed0f1541f54012ae46f554b5c45e6--dog-paw-prints-car-stickers.jpg">
+        </a>    
+        <h4 class="subtitle">Find Pictures and Videos Of Dog Breeds</h4>
+      </div>
+      <form id="signup-form" class="signup-form">
+        <fieldset>
+          <legend>Sign up</legend>
+          <label for="user-email">Email</label>
+          <input type="email" placeholder="foo@bar.com" name="email" id="user-email" required/>
+          <label for="user-password">Password</label>
+          <input placeholder="1234passw0rd" type="password" name="password" id="user-password" required/>
+          <button type="submit" class="js-sign-up-button">Sign up</button>
+        </fieldset>
+      </form>
+      <footer role="contentinfo" class="form-footer">
+        <p>Already have an account? <a href="/auth/login" class="js-login">Log in</a></p>
+      </footer>
+    </div>
   </div>
-  <form id="signup-form" class="signup-form">
-    <fieldset>
-      <legend>Sign up</legend>
-      <label for="user-email">Email</label>
-      <input type="email" placeholder="foo@bar.com" name="email" id="user-email" required/>
-      <!-- The name "email" is what is used in authcontroller to verify that a email and 
-      password were submitted as part of the form submission-->
-      <label for="user-password">Password</label>
-      <input placeholder="1234passw0rd" type="password" name="password" id="user-password" required/>
-      <button type="submit" class="js-sign-up-button">Sign up</button>
-    </fieldset>
-  </form>
-  <footer role="contentinfo" class="form-footer">
-    <p>Already have an account? <a href="/auth/login" class="js-login">Log in</a></p>
-  </footer>
-
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/auth/loginsignup.js"></script>
 </body>

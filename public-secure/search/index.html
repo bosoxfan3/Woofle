@@ -11,33 +11,38 @@
 </head>
 
 <body>
-  <div class="nav">
-    <nav>
-      <div class="home-link">
-        <a href="/">
-          <h2 class="title">Woofle</h2>
-          <img class="logo" src="https://i.pinimg.com/736x/5e/ae/d0/5eaed0f1541f54012ae46f554b5c45e6--dog-paw-prints-car-stickers.jpg">
-        </a>
-      </div>
-      <div class="site-links">
-        <a href="/favorites">My Favorites</a>
-        <a href="/auth/logout">Log Out</a>
-      </div>
-    </nav>
-  </div>
-  <div class="main-section">
-    <h1>Search By Breed</h1>
-    <div id="selectBar">
+  <div class="row">
+      <div class="nav col-12">
+        <nav>
+          <div class="home-link">
+            <a href="/">
+              <h2 class="title">Woofle</h2>
+              <img class="logo" src="https://i.pinimg.com/736x/5e/ae/d0/5eaed0f1541f54012ae46f554b5c45e6--dog-paw-prints-car-stickers.jpg">
+            </a>
+          </div>
+          <div class="site-links">
+            <a href="/favorites">My Favorites</a>
+            <a href="/auth/logout">Log Out</a>
+          </div>
+        </nav>
     </div>
-    <br>
-    <div class="search-buttons">
-      <button class="js-search-button button inline-search-button" type="submit">Search</button>
-      <button class="js-random-search-button button inline-search-button" type="button">Find A Random Breed</button>
-    </div>
-    <input class="button fav-button" type="button" onclick="location.href='/favorites';" value="View My Favorites" />
-    <input class="button logout-button" type="button" onclick="location.href='/auth/logout';" value="Log Out" />
   </div>
-
+  <div class="row">
+    <div class="col-12">
+      <div class="main-section">
+        <h1>Search By Breed</h1>
+        <div id="selectBar">
+        </div>
+        <br>
+        <div class="search-buttons">
+          <button class="js-search-button button inline-search-button" type="submit">Search</button>
+          <button class="js-random-search-button button inline-search-button" type="button">Find A Random Breed</button>
+        </div>
+        <input class="button fav-button" type="button" onclick="location.href='/favorites';" value="View My Favorites" />
+        <input class="button logout-button" type="button" onclick="location.href='/auth/logout';" value="Log Out" />
+      </div>
+    </div>
+  </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/search/search.js"></script>
 </body>

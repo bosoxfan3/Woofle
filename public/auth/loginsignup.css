@@ -15,6 +15,11 @@ body {
   color: white;
 }
 
+.title-section > a {
+  color: white;
+  text-decoration: none;
+}
+
 .title {
   font-size: 50px;
   font-family: 'Cuprum';
@@ -155,6 +160,7 @@ fieldset {
   text-align: center;
   color: white;
   padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 10pt;
 }
 
