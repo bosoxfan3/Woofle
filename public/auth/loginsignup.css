@@ -91,8 +91,8 @@ fieldset {
 }
 
 .login-form input {
-  height: 25px;
-  width: 290px;
+  height: 50px;
+  width: 325px;
   border: 1px thin gray;
   border-radius: 2px;
   padding: 15px;
@@ -104,8 +104,8 @@ fieldset {
 }
 
 .signup-form input {
-  height: 25px;
-  width: 290px;
+  height: 50px;
+  width: 325px;
   border: 1px thin gray;
   border-radius: 2px;
   padding: 15px;
@@ -161,9 +161,39 @@ fieldset {
   color: white;
   padding-top: 20px;
   padding-bottom: 20px;
-  font-size: 10pt;
+  font-size: 12pt;
 }
 
 .form-footer p, .form-footer a {
   color: white;
+}
+
+/* So that the login-form is smaller on smaller screens*/
+@media only screen and (max-width: 700px) {
+  .login-form, .signup-form {
+    height: 325px;
+    width: 300px;
+  }
+  .login-form legend, .signup-form legend {
+    font-size: 14pt;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    padding-right: 50px;
+  }
+  .login-form input, .signup-form input {
+    height: 30px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: 85px;
+  }
+  .login-form button, .signup-form button {
+    height: 50px;
+    width: 200px;
+    margin-right: 85px;
+  }
+  .login-form label, .signup-form label {
+    text-align: center;
+    padding-right: 50px;
+  }
 }
