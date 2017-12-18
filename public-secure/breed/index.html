@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Woofle Breed Page</title>
+  <link rel="stylesheet" type="text/css" href="../../public/float-grid.css">
   <link rel="stylesheet" type="text/css" href="/breed/breed.css">
-  <link rel="stylesheet" type="text/css" href="float-grid.css">
   <link href="https://fonts.googleapis.com/css?family=Cuprum:700" rel="stylesheet">  
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -40,14 +40,25 @@
       <p></p>
     </div>
   </div>
-    <div class="js-images-div dog-image-div">
-    </div>
-    <div class="js-videos-div dog-video-div">
+  <div class="row">
+    <div class="col-12">
+      <div class="js-images-div dog-image-div">
+      </div>
     </div>
   </div>
-  <input class="button page-bottom-button" type="button" onclick="location.href='/search';" value="Back to Search" />
-  <input class="button page-bottom-button" type="button" onclick="location.href='/favorites';" value="View My Favorites" />
-  <input class="button page-bottom-button" type="button" onclick="location.href='/auth/logout';" value="Log Out" />
+  <div class="row">
+    <div class="col-12">
+      <div class="js-videos-div dog-video-div">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <input class="button page-bottom-button" type="button" onclick="location.href='/search';" value="Back to Search" />
+      <input class="button page-bottom-button" type="button" onclick="location.href='/favorites';" value="View My Favorites" />
+      <input class="button page-bottom-button" type="button" onclick="location.href='/auth/logout';" value="Log Out" />
+    </div>
+  </div>
   
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/breed/breed.js"></script>

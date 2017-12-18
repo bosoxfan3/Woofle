@@ -14,7 +14,7 @@ function getDataFromAllApis(searchTerm) {
 function showDogImages(result) {
   let html = '';
   for (let i=0; i<result.length; i++) {
-    html += `<img class="dog-image" border="8px" src=${result[i]}>`;
+    html += `<img class="dog-image col-3" border="8px" src=${result[i]}>`;
   }
   $('.js-images-div').append(html);
 }

@@ -94,7 +94,8 @@ p {
 }
 
 .dog-image-div {
-  width: 950px;
+  width: 80%;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -128,4 +129,35 @@ div[title^="youtube"] {
 .page-bottom-button {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+/* So that the pictures and videos are centered on smaller screens*/
+@media only screen and (max-width: 700px) {
+  .dog-image-div {
+    text-align: center;
+  }
+  .dog-video-div {
+    text-align: center;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  div[title^="youtube"] iframe {
+    max-width: 250px;
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
+/* So that the nav bar fits on a iPhone 5 or smaller screen */
+@media only screen and (max-width: 350px) {
+  .home-link {
+    padding-left: 5px;
+  }
+  .site-links a {
+    padding-left: 2px;
+    padding-right: 0px;
+  }
+  .site-links {
+    padding-right: 3px;
+  }
 }
