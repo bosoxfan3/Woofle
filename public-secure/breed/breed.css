@@ -128,11 +128,6 @@ div[title^="youtube"] {
   margin: 5px;
 }
 
-.page-bottom-button {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
 /* So that the pictures and videos are centered on smaller screens*/
 @media only screen and (max-width: 700px) {
   .dog-image-div {

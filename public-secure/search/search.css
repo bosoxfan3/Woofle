@@ -96,11 +96,3 @@ select {
   margin-left: 5px;
   margin-right: 5px;
 }
-
-.fav-button, .logout-button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
