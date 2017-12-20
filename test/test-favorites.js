@@ -1,6 +1,6 @@
 'use strict';
 
-const {DATABASE_URL, PORT} = require('../config');
+const {TEST_DATABASE_URL, PORT} = require('../config');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const {app, runServer, closeServer} = require('../server.js');
@@ -16,7 +16,7 @@ describe('Favorites endpoint', function() {
 
   before(function() {
     User.create({email, password});
-    return runServer(DATABASE_URL, PORT);
+    return runServer(TEST_DATABASE_URL, PORT);
   });
 
   after(function() {

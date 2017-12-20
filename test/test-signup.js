@@ -1,6 +1,6 @@
 'use strict';
 
-const {DATABASE_URL, PORT} = require('../config');
+const {TEST_DATABASE_URL, PORT} = require('../config');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const {app, runServer, closeServer} = require('../server.js');
@@ -12,16 +12,15 @@ chai.use(chaiHttp);
 describe('Signup endpoint', function() {
   
   before(function () {
-    return runServer(DATABASE_URL, PORT);
+    return runServer(TEST_DATABASE_URL, PORT);
   });
   
   after(function() {
     return closeServer();
   });
     
-  afterEach(function() {
-    User.find().remove().exec();
-    return User.create({email: 'daniel@gmail.com', password: '1234'});
+  beforeEach(function() {
+    return User.remove({}).then(() => User.create({email: 'daniel@gmail.com', password: '1234'}));
   });
 
   describe('/auth/signup', function() {

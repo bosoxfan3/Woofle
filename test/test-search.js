@@ -1,6 +1,6 @@
 'use strict';
 
-const {DATABASE_URL, PORT} = require('../config');
+const {TEST_DATABASE_URL, PORT} = require('../config');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const jwt = require('jsonwebtoken');
@@ -17,7 +17,7 @@ chai.use(chaiHttp);
 describe('Search endpoint', function() {
 
   before(function () {
-    return runServer(DATABASE_URL, PORT);
+    return runServer(TEST_DATABASE_URL, PORT);
   });
 
   after(function() {
