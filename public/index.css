@@ -43,15 +43,15 @@ p {
 }
 
 .section {
-  background-color: lightgray;
+  background-color: white;
   padding-bottom: 10px;
   padding-top: 10px;
   text-align: left;
 }
 
 .section p {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
 .links {
@@ -66,6 +66,31 @@ p {
 
 a {
   color: white;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  background-color: rgb(75, 75, 250);
+  width: 100%;
+  margin-top: 120px;
+  height: 40px;
+}
+
+footer p {
+  font-size: 12pt;
+  padding-top: 10px;
+  padding-right: 5px;
+}
+
+footer p, footer a {
+  display: inline-block;
+}
+
+footer a img {
+  width: 20px;
+  position: relative;
+  top: 3px;
 }
 
 /* So that the dog image is smaller on smaller screens*/
