@@ -19,7 +19,7 @@ describe('Server', function() {
   });
 
   describe('server', function(done) {
-    it('should return status code 200', function (done) {
+    it('should return status code 200', function(done) {
       chai.request(app)
         .get('/')
         .then(function(res) {

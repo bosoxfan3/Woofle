@@ -3,7 +3,6 @@
 function drawFavoritesList(favorites) {
   let html = '';
   $.each(favorites, function (index, value) {
-    console.log(value)
     html += '<div class="favorite-breed">';
     html += '<p class="breed-title">' + value.toUpperCase() + '</p>';
     html += '<input class="button view-breedpage-button" type="button" onclick="location.href=`/breeds/'+value+'`;" value="View Breed" />';
@@ -30,5 +29,6 @@ function getFavorites() {
     drawFavoritesList(favorites);
   });
 }
+
 getFavorites();
 //This gets called as soon as the html page is loaded.

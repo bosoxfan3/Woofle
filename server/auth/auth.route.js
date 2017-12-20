@@ -13,8 +13,6 @@ router.route('/login')
   .get(authController.getLoginPage)
   .post(authController.login);
 
-
-// TODO
 router.route('/logout')
   .post(authController.logout) //don't use but just in case since there's no universal standard
   .get(authController.logout);

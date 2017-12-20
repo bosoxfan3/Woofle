@@ -20,9 +20,8 @@ function getLoginPage(req, res, next) {
 }
 
 function signup(req, res, next) {
-  const { email, password } = req.body;
+  const {email, password} = req.body;
   const requiredFields = ['email', 'password'];
-  //taken from the names of the inputs
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {

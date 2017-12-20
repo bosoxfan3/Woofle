@@ -28,11 +28,6 @@ $('.js-random-search-button').click(function(event) {
   window.location.href = `/breeds/${randomBreed}`;  
 });
 
-//makes call to breeds/search/:breedName route on the backend.
-//then uses the saveInputFromBreedSearch backend function to return a url
-//and then the .done in line 7 redirects to that url, which triggers
-//that route and it's corresponding functions on the backend
-
 const dogBreedArray = ['affenpinscher', 'african', 'airedale', 'akita', 'appenzeller', 'basenji',
   'beagle', 'bluetick', 'borzoi', 'bouvier', 'boxer', 'brabancon', 'briard', 'boston bulldog',
   'french bulldog', 'staffordshire bullterrier', 'cairn', 'chihuahua', 'chow', 'clumber',

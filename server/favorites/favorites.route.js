@@ -2,6 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
+
 const favoritesController = require('./favorites.controller');
 
 router.get('/all', favoritesController.all);

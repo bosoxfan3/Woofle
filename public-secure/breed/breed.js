@@ -20,13 +20,13 @@ function showDogImages(result) {
 }
 
 function showYouTubeResults(result) {
-  var html = ' ';
-  $.each(result, function (index, value) {
+  let html = ' ';
+  $.each(result, function(index, value) {
     if (value.id.videoId) {
       let videoLink = 'https://www.youtube.com/watch?v=' + value.id.videoId;
       let embedLink = 'https://www.youtube.com/embed/' + value.id.videoId;
       if ((value.snippet.title).length > 35) {
-        value.snippet.title = (value.snippet.title).substr(0, 35)+'...';
+        value.snippet.title = (value.snippet.title).substr(0, 35) + '...';
       }
       html += `<div title="youtube-video-${index}"><iframe width="350" height="250" src="${embedLink}"></iframe>` +
               '<br>' +
@@ -52,7 +52,7 @@ $('.js-add-to-favorites-button').click(event => {
     method: 'POST',
     data: {breed: resultDog}
   })
-    .done(function (done) {
+    .done(function(done) {
       $('p').append('Added To My Favorites');
     })
     .fail(function (fail) {

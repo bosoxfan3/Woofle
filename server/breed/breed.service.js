@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-//Backend API calls for DogCEO
+//API calls for DogCEO
 const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
 
 function getDataFromDogCEOApi(searchTerm) {
@@ -23,7 +23,7 @@ function getDataFromDogCEOApi(searchTerm) {
     });
 }
 
-//Backend API calls for YouTube
+//API calls for YouTube
 const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromYouTubeApi(searchTerm) {

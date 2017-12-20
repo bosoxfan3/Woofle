@@ -12,6 +12,7 @@ const password = '12345678';
 chai.use(chaiHttp);
 
 describe('Login endpoint', function() {
+  
   before(function () {
     return runServer(TEST_DATABASE_URL, PORT);
   });

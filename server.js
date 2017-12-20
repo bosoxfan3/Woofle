@@ -2,7 +2,7 @@
 
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -24,13 +24,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
+// UNPROTECTED ROUTES. DO NOT NEED TOKEN TO ACCESS
 app.use(express.static('public'));
 app.use('/auth', authRoutes);
 
 // Authentication middleware provided by express-jwt. 
-// If you're not logged in, it says you're unauthorized.
-// Otherwise it allows you to access the resource
 app.use(ejwt({
   secret: JWT_SECRET_KEY,
   getToken: function fromHeader (req) {
@@ -39,7 +37,6 @@ app.use(ejwt({
 }));
 
 // PROTECTED FROM NOW ON. 
-
 app.use(express.static('public-secure'));
 app.use('/breeds', breedRoutes);
 app.use('/api/favorites', favoritesRoutes);
@@ -49,7 +46,8 @@ app.use('/', function(req, res, next) {
   res.sendFile(path.resolve('public/index.html'));
 });
 
-//If we're about to 401, redirect to the login page
+//If we're about to 401, redirect to the landing page
+//If user tries to signup with existing credentials, redirect to login
 app.use(function(err, req, res, next) {
   if(401 == err.status) {
     console.log(err);
@@ -64,7 +62,6 @@ app.use(function(err, req, res, next) {
 
 let server;
 
-// this function connects to our database, then starts the server
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {
@@ -83,8 +80,6 @@ function runServer(databaseUrl=DATABASE_URL, port=PORT) {
   });
 }
 
-// this function closes the server, and returns a promise. we'll
-// use it in our integration tests later.
 function closeServer() {
   return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
@@ -98,8 +93,6 @@ function closeServer() {
   });
 }
 
-// if server.js is called directly (aka, with `node server.js`), this block
-// runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
   runServer().catch(err => console.error(err));
 }
