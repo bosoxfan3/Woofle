@@ -11,7 +11,6 @@ $(function() {
       method: 'POST'
     })
       .done(function(done) {
-        console.log(done)
         window.location.href = done.url;
       })
       .fail(function(fail) {
