@@ -18,16 +18,20 @@ Woofle was created to aggregate basic visual information about dog breeds. It is
 
 Screenshots
 -----------
-Landing Page: In order to access the app and save/maintain their own profile, users will need to sign up and/or log in. There is a demo link provided for uses who do not wish to sign up.
+####Landing Page: 
+In order to access the app and save/maintain their own profile, users will need to sign up and/or log in. There is a demo link provided for uses who do not wish to sign up.
 ![Landing Page](/screenshots/1.png)
 
-Search Page: Choose from a list of over 100 breeds or complete a random search
+####Search Page: 
+Choose from a list of over 100 breeds or complete a random search
 ![Search Page](/screenshots/2.png)
 
-Breed Info Page: The breed information page will have up to 8 pictures and 5 videos of the selected breed. Videos can be watched in the app or re-directed to YouTube. Clicking the "Add to Favorites" button will add that breed to the user's favorites list
+####Breed Info Page: 
+The breed information page will have up to 8 pictures and 5 videos of the selected breed. Videos can be watched in the app or re-directed to YouTube. Clicking the "Add to Favorites" button will add that breed to the user's favorites list
 ![Breed Info Page](/screenshots/3.png)
 
-Favorites Page: This page displays a list of the user's saved favorite breeds and allows for easy access to that breed's information page.
+####Favorites Page: 
+This page displays a list of the user's saved favorite breeds and allows for easy access to that breed's information page.
 ![Favorites Page](/screenshots/4.png)
 
 How To Use Woofle?
