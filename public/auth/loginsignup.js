@@ -1,7 +1,9 @@
+'use strict';
+
 $(function() {
   $('#signup-form').submit(function(event) {
     event.preventDefault();
-    var userSignUpDetails = {
+    let userSignUpDetails = {
       email: $('#user-email').val(),
       password: $('#user-password').val()
     };
@@ -22,7 +24,7 @@ $(function() {
 $(function() {
   $('#login-form').submit(function(event) {
     event.preventDefault();
-    var userLogInDetails = {
+    let userLogInDetails = {
       email: $('#user-email').val(),
       password: $('#user-password').val()
     };
@@ -35,6 +37,27 @@ $(function() {
         window.location.href = done.redirect;
         //.redirect works because in the auth controller the done object
         //sent back has key redirect and value /search
+      })
+      .fail(function(fail) {
+        console.log(fail);
+      });
+  });
+});
+
+$(function() {
+  $('.js-demo-link').click(function(event) {
+    event.preventDefault();
+    let demoLogin = {
+      email: 'daniel@gmail.com',
+      password: '1234'
+    };
+    $.ajax({
+      url: '/auth/login',
+      data: demoLogin,
+      method: 'POST'
+    })
+      .done(function(done) {
+        window.location.href = done.redirect;
       })
       .fail(function(fail) {
         console.log(fail);

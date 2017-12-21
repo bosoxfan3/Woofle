@@ -93,6 +93,12 @@ footer a img {
   top: 3px;
 }
 
+.demo-link {
+  text-align: center;
+  font-size: 14pt;
+  padding-top: 10px;
+}
+
 /* So that the dog image is smaller on smaller screens*/
 @media only screen and (max-width: 700px) {
   .dog-image {
