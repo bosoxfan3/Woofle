@@ -32,20 +32,21 @@ Screenshots
 
 Getting Started
 --------------
-###Installing
+### Installing
 ```
 >   git clone https://github.com/bosoxfan3/Woofle.git
 >   cd Woofle
 >   npm install
 ```
-###Launching
+### Launching
 ```
 >   npm start
 ```
 Then open [`localhost:8080`](http://localhost:8080) in a browser.
 
 **As mentioned above, either sign up, log in, or use the demo account to continue using Woofle.**
-###Testing
+
+### Testing
 ```
 >   npm test
 ```
@@ -53,20 +54,20 @@ Then open [`localhost:8080`](http://localhost:8080) in a browser.
 Technologies Used
 -----------------
 Woofle is a Node Javascript app created with Express. It also utilizes MongoDB to track users and their favorites. Developers will need to install MongoDB and Node.js for full functionality.
-###Front End
-  *HTML
-  *CSS
-  *Javascript
-  *jQuery
+### Front End
+  * HTML
+  * CSS
+  * Javascript
+  * jQuery
 
-###Back End
-  *Node.js: Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications
-  *Express: Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications
-  *MongoDB: MongoDB is the leading NoSQL database
-  *Mocha and Chai: Use for testing
-  *TravisCI: Used for continuous integration and deployment
+### Back End
+  * Node.js: Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications
+  * Express: Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications
+  * MongoDB: MongoDB is the leading NoSQL database
+  * Mocha and Chai: Use for testing
+  * TravisCI: Used for continuous integration and deployment
 
-###APIs
-  *[YouTube](https://youtube.com) for videos
-  *[Dog API](https://dog.ceo/dog-api/) for pictures
+### APIs
+  * [YouTube](https://youtube.com) for videos
+  * [Dog API](https://dog.ceo/dog-api/) for pictures
 
