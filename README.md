@@ -62,9 +62,9 @@ Woofle is a Node Javascript app created with Express. It also utilizes MongoDB t
 
 ### Back End
   * Node.js: Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications
-  * Express: Express is a minimal and flexible node.js web application framework, providing a robust set of features for building single and multi-page, and hybrid web applications
+  * Express: Express is a minimal and flexible node.js web application framework
   * MongoDB: MongoDB is the leading NoSQL database
-  * Mocha and Chai: Use for testing
+  * Mocha and Chai: Mocha is a Javascript test framework. Chai is an assertion library used for testing.
   * TravisCI: Used for continuous integration and deployment
 
 ### APIs
