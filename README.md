@@ -1,10 +1,24 @@
-What Is Woofle?
+Woofle
+======
 
-Woofle makes learning about dog breeds easier. With a vast breed database, a simple interface, and minimal text, Woofle is extremely user friendly and useful for people of all ages.
+Table of Contents
+-----------------
+1. [Purpose](https://github.com/bosoxfan3/Woofle#purpose)
+2. [Screenshots](https://github.com/bosoxfan3/Woofle#screenshots)
+3. [Getting Started](https://github.com/bosoxfan3/Woofle#getting-started)
+4. [Technologies Used](https://github.com/bosoxfan3/Woofle#technologies-used)
 
-Why Use Woofle?
+Purpose
+-------
+### What Is Woofle?
+[Woofle](https://woofle.herokuapp.com/) makes learning about dog breeds easier. With a vast database, a simple interface, and minimal text, Woofle is extremely user friendly and useful for people of all ages.
 
-Woofle was created to aggregate basic visual information about dog breeds and put it in one place. It was intended to expose people to simple, concise information and educate them about dog breeds. We believe this will help people make smarter decisions when shopping for a dog, as well as learn more about the innate traits of their own dogs or dogs they may come across.
+### Why Use Woofle?
+Woofle was created to aggregate basic visual information about dog breeds. It is intended to be an educational tool and help people make smarter decisions when shopping for a dog, as well as learn more about the innate traits of their own dogs or dogs they may come across.
+
+
+
+
 
 How To Use Woofle?
 
