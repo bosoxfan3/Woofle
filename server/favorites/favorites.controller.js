@@ -6,9 +6,8 @@ exports.deleteFavorite = deleteFavorite;
 
 const _ = require('lodash');
 const User = require('../user/user.model');
-const path = require('path');
 
-function all(req, res, next) {
+function all(req, res) {
   User.getUserByEmail(req.user.email)
     .then((user) => {
       res.json(user.favorites);
@@ -19,7 +18,7 @@ function all(req, res, next) {
     });
 }
 
-function addFavorite(req, res, next) {
+function addFavorite(req, res) {
   var breedName = req.params.breedName;
   User.getUserByEmail(req.user.email)
     .then((user) => {
@@ -36,7 +35,7 @@ function addFavorite(req, res, next) {
     });
 }
 
-function deleteFavorite(req, res, next) {
+function deleteFavorite(req, res) {
   var breedName = req.params.breedName;
   User.getUserByEmail(req.user.email)
     .then((user) => {

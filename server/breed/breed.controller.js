@@ -8,7 +8,7 @@ const _ = require('lodash');
 const breedService = require('./breed.service');
 const path = require('path');
 
-function fetchBreedData(req, res, next) {
+function fetchBreedData(req, res) {
   const breedName = req.params.breedName;
   Promise.all([
     breedService.getDataFromDogCEOApi(breedName),
@@ -22,17 +22,16 @@ function fetchBreedData(req, res, next) {
       res.status(500).json({message: 'Internal server error'});
     });
 }
-//Promise.all makes sure this gets started after the data has been retrieved from both APIs.
-//This makes it so they load at the same time.
 
-function showBreedPage(req, res, next) {
+function showBreedPage(req, res) {
   res.sendFile(path.resolve('public-secure/breed/index.html'));
 }
 
-function loadSearchBar(req, res, next) {
+function loadSearchBar(req, res) {
   res.json(breedData.dogBreedArray);
 }
 
+//value and inputText keys are necessary since a few of them differ on the Dog API
 const breedData = {
   dogBreedArray: [
     { value: 'Affenpinscher',

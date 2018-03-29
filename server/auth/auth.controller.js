@@ -11,11 +11,11 @@ const config = require('../../config');
 const User = require('../user/user.model');
 const path = require('path');
 
-function getSignupPage(req, res, next) {
+function getSignupPage(req, res) {
   res.sendFile(path.resolve('public/auth/signup.html'));
 }
 
-function getLoginPage(req, res, next) {
+function getLoginPage(req, res) {
   res.sendFile(path.resolve('public/auth/login.html'));
 }
 
@@ -34,14 +34,12 @@ function signup(req, res, next) {
         return res.status(400).send(`${email} already in database`);
       }
       User.create({email, password})
-      //create is usable even though it isn't a defined function in user.model
-      //because .create is a mongoose method.
         .then(user => res.json({url:'/auth/login.html'}))
         .catch(err => next(err));
     });
 }
 
-function login(req, res, next) {
+function login(req, res) {
   const { email, password } = req.body;
   if (!email || !password) {
     return res.status(401).send();
@@ -59,7 +57,6 @@ function login(req, res, next) {
         email: user.email,
         id: user.id,
       }, config.JWT_SECRET_KEY);
-      // Set a cookie for our auth token.
       res.cookie('woofle-token', token, {maxAge: 9999999});
       res.status(200).send({redirect: '/search'});
     })
@@ -68,7 +65,7 @@ function login(req, res, next) {
     });
 }
 
-function logout(req, res, next) {
+function logout(req, res) {
   req.user = null;
   res.clearCookie('woofle-token');
   res.redirect('/');
