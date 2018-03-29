@@ -58,8 +58,6 @@ a {
   max-width: inherit;
   color: white;
 }
-/* This inherits the width of its parent, which in this case is the div with
-title=youtube-video-index#. Video width and height is already set in breedFrontEnd */
 
 h1 {
   display: block;
@@ -128,7 +126,6 @@ div[title^="youtube"] {
   margin: 5px;
 }
 
-/* So that the pictures and videos are centered on smaller screens*/
 @media only screen and (max-width: 700px) {
   .dog-image-div {
     text-align: center;
@@ -145,7 +142,6 @@ div[title^="youtube"] {
   }
 }
 
-/* So that the nav bar fits on a iPhone 5 or smaller screen */
 @media only screen and (max-width: 350px) {
   .home-link {
     padding-left: 5px;

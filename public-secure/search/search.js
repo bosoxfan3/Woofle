@@ -19,11 +19,11 @@ function showBreedsInSelectBar(result) {
   $('#selectBar').append(html);
 }
 
-$('.js-search-button').click(function(event) {
+$('.js-search-button').click(function() {
   let typedInput = $('#breedSearch').val().toLowerCase();
   window.location.href = `/breeds/${typedInput}`;
 });
-$('.js-random-search-button').click(function(event) {
+$('.js-random-search-button').click(function() {
   let randomBreed = dogBreedArray[Math.floor(Math.random() * dogBreedArray.length)];
   window.location.href = `/breeds/${randomBreed}`;  
 });

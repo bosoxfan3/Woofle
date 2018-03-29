@@ -46,7 +46,7 @@ getDataFromAllApis(resultDog);
 //getting the breed name from the backend and using it to add a title
 //and make API calls
 
-$('.js-add-to-favorites-button').click(event => {
+$('.js-add-to-favorites-button').click(() => {
   $.ajax({
     url: '/api/favorites/' + resultDog,
     method: 'POST',

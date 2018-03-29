@@ -21,8 +21,7 @@ function doRemoveFavorite(breedName) {
     }
   });
 }
-//this function isn't called because it is included in every button in the 
-//html that is built by the drawFavoritesList function above
+//this function isn't called but it is included in every button built above
 
 function getFavorites() {
   $.getJSON('/api/favorites/all', {}, function (favorites) {
@@ -30,5 +29,6 @@ function getFavorites() {
   });
 }
 
-getFavorites();
-//This gets called as soon as the html page is loaded.
+$(document).ready(function() {
+  getFavorites();
+});
