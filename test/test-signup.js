@@ -20,7 +20,8 @@ describe('Signup endpoint', function() {
   });
     
   beforeEach(function() {
-    return User.remove({}).then(() => User.create({email: 'daniel@gmail.com', password: '1234'}));
+    return User.remove({})
+      .then(() => User.create({email: 'daniel@gmail.com', password: '1234'}));
   });
 
   describe('/auth/signup', function() {

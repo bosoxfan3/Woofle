@@ -38,9 +38,6 @@ describe('Login endpoint', function() {
           expect(res).to.have.status(401);
         })
         .catch(function(err) {
-          //because 401 is an error, you don't want to console log these
-          //errors since it will console log when it gets a 401
-          //as intended
         });
     });
     it('Should reject requests with no password', function() {

@@ -53,7 +53,6 @@ describe('Favorites endpoint', function() {
       return chai
         .request(app)
         .get('/search')
-        //the route doesn't need a slash even though there is one in the router
         .set('woofle-token', Cookie)
         .then(function(res) {
           expect(res).to.have.status(200);
