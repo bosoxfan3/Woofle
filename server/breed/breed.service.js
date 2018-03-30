@@ -47,7 +47,37 @@ function getDataFromYouTubeApi(searchTerm) {
     });
 }
 
+//API call for PetFinder
+const PETFINDER_URL = 'https://api.petfinder.com/pet.find';
+
+function getDataFromPetFinderApi(breedName) {
+  breedName = breedName[0].toUpperCase()+breedName.slice(1);
+  const query = {
+    key: 'cea5cdb599585cf4d921ba8f2873e41f',
+    animal: 'dog',
+    breed: breedName,
+    location: 94070,
+    output: 'full',
+    format: 'json'
+  };
+  let queryString = '?';
+  for (var key in query) {
+    queryString += `${key}=${encodeURIComponent(query[key])}&`;
+  }
+  queryString = queryString.substr(0, queryString.length-1);
+  return axios.get(PETFINDER_URL+queryString)
+    .then((data) => {
+      console.log(breedName);
+      return data.data.petfinder.pets.pet;
+    })
+    .catch(err => {
+      console.log(`Error in fetching adoption data from PetFinder ${err}`);
+      return Promise.reject(err);
+    });
+}
+
 module.exports = {
   getDataFromDogCEOApi,
-  getDataFromYouTubeApi
+  getDataFromYouTubeApi,
+  getDataFromPetFinderApi
 };

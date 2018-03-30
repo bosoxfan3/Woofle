@@ -13,10 +13,11 @@ function fetchBreedData(req, res) {
   Promise.all([
     breedService.getDataFromDogCEOApi(breedName),
     breedService.getDataFromYouTubeApi(breedName),
+    breedService.getDataFromPetFinderApi(breedName)
   ])
-    .then(([imageData, youTubeData]) => {
+    .then(([imageData, youTubeData, adoptionData]) => {
       const imageUrls = _.slice(imageData.message,0 ,8);
-      return res.json({imageUrls, youTubeData});
+      return res.json({imageUrls, youTubeData, adoptionData});
     })
     .catch(err => {
       res.status(500).json({message: 'Internal server error'});

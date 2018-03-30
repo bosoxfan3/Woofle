@@ -2,13 +2,29 @@
 
 function getDataFromAllApis(searchTerm) {
   $.get('/breeds/fetch/'+searchTerm)
-    .done(function ({imageUrls, youTubeData}) {
+    .done(function ({imageUrls, youTubeData, adoptionData}) {
       showDogImages(imageUrls);
       showYouTubeResults(youTubeData);
+      console.log(adoptionData);
+      showAdoptionData(adoptionData);
     })
     .fail(function (error) {
       console.log(error);
     });
+}
+
+function showAdoptionData(result) {
+  let html = '';
+  for (let i=0; i<2; i++) {
+    html += `<div>
+              <p>Name: ${result[i].name['$t']}</p>
+              <img src=${result[i].media.photos.photo[0]['$t']} alt=${result[i].breeds.breed['$t']}>
+              <p>Contact Email: ${result[i].contact.email['$t']}</p>
+              <p>Contact Phone: ${result[i].contact.phone['$t']}</p>
+              <p>City: ${result[i].contact.city['$t']}</p>
+            </div>`;
+  }
+  $('.js-adoption-div').append(html);
 }
 
 function showDogImages(result) {
