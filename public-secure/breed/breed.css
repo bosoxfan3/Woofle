@@ -7,7 +7,7 @@ body {
   background-color: #4AB3F4;
 }
 
-.nav {
+nav {
   top: 0;
   position: fixed;
   width: 100%;
@@ -68,6 +68,17 @@ h1 {
   font-family: 'Cuprum';
 }
 
+h3 {
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  font-family: 'Cuprum';
+}
+
+.center {
+  text-align: center;
+}
+
 p {
   color: white;
   font-size: 12pt;
@@ -76,18 +87,22 @@ p {
   font-family: 'Cuprum';
 }
 
-.button {
+.button-section {
+  text-align: center;
+}
+
+button {
   height: 40px;
-  width: 125px;
+  width: 140px;
+  margin-left: 5px;
+  margin-right: 5px;
   background-color: white;
   border-color: transparent;
   border-radius: 3px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: inline-block;
 }
 
-.button:hover {
+button:hover {
   background-color: blue;
   border-color: blue;
   color: white;
@@ -124,6 +139,14 @@ div[title^="youtube"] {
   max-width: 350px;
   display: inline-block;
   margin: 5px;
+}
+
+.adoption-image-div {
+  text-align: center;
+}
+
+.adoption-image {
+  width: 70%;
 }
 
 @media only screen and (max-width: 700px) {
