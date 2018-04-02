@@ -67,7 +67,6 @@ function getDataFromPetFinderApi(breedName) {
   queryString = queryString.substr(0, queryString.length-1);
   return axios.get(PETFINDER_URL+queryString)
     .then((data) => {
-      console.log(breedName);
       return data.data.petfinder.pets.pet;
     })
     .catch(err => {
