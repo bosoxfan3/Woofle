@@ -10,11 +10,11 @@ function getAllBreedNames() {
     });
 }
 
-function showBreedsInSelectBar(result) { 
+function showBreedsInSelectBar(data) { 
   let html = '<select name="selectedBreed" id="breedSearch">';
-  $.each(result, function (index, value) {
-    html += `<option value=${value.value}>${value.inputText}</option>`;
-  });
+  for (var i=0; i<data.length; i++) {
+    html += `<option value='${data[i].value}'>${data[i].inputText}</option>`;
+  }
   html += '</select>';
   $('#selectBar').append(html);
 }

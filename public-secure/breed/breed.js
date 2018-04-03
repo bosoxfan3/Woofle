@@ -24,8 +24,8 @@ function showAdoptionData(result) {
   let email;
   let phone;
   for (let i=0; i<8; i++) {
-    if (result[i].media.photos.photo.length === 0) {
-      image = '<img class=\'adoption-image\' src=\'\' alt=\'No photos available\'>';
+    if (!result[i].media.photos) {
+      image = '<p class="no-photos">No photos available</p>';
     } else {
       image = getAdoptionImage(result[i].media.photos.photo);
     }
@@ -44,8 +44,8 @@ function showAdoptionData(result) {
     }
     name = !result[i].name['$t']? 'No name listed' : result[i].name['$t'];
     age = !result[i].age['$t']? 'No age listed' : result[i].age['$t'];
-    city = !result[i].contact.city['$t']? 'No city listed' : result[i].contact.city['$t'];
-    email = !result[i].contact.email['$t']? 'No email listed' : result[i].contact.city['$t'];
+    city = !result[i].contact.city['$t']? 'No city listed' : `${result[i].contact.city['$t']}, ${result[i].contact.state['$t']}`;
+    email = !result[i].contact.email['$t']? 'No email listed' : result[i].contact.email['$t'];
     phone = !result[i].contact.phone['$t']? 'No phone listed' : result[i].contact.phone['$t'];
     html += (
       `<div class="row">

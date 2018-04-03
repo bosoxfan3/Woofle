@@ -7,7 +7,7 @@ const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
 
 function getDataFromDogCEOApi(searchTerm) {
   let query;
-  if(searchTerm.indexOf(' ') >= 0) {
+  if (searchTerm.indexOf(' ') >= 0) {
     let splitTerm = searchTerm.split(' ');
     query = `${splitTerm[1]}/${splitTerm[0]}/images`;
   } else {
@@ -51,7 +51,14 @@ function getDataFromYouTubeApi(searchTerm) {
 const PETFINDER_URL = 'https://api.petfinder.com/pet.find';
 
 function getDataFromPetFinderApi(breedName) {
-  breedName = breedName[0].toUpperCase()+breedName.slice(1);
+  if (breedName.indexOf(' ') >= 0) {
+    let splitTerm = breedName.split(' ');
+    let firstWord = splitTerm[0][0].toUpperCase()+splitTerm[0].slice(1);
+    let secondWord = splitTerm[1][0].toUpperCase()+splitTerm[1].slice(1);
+    breedName = firstWord+' '+secondWord;
+  } else {
+    breedName = breedName[0].toUpperCase()+breedName.slice(1);
+  }
   const query = {
     key: 'cea5cdb599585cf4d921ba8f2873e41f',
     animal: 'dog',
