@@ -17,26 +17,55 @@ function getDataFromAllApis(searchTerm) {
 
 function showAdoptionData(result) {
   let html = '';
-  for (let i=0; i<5; i++) {
+  let name;
+  let age;
+  let breeds;
+  let city;
+  let email;
+  let phone;
+  for (let i=0; i<8; i++) {
     if (result[i].media.photos.photo.length === 0) {
       image = '<img class=\'adoption-image\' src=\'\' alt=\'No photos available\'>';
     } else {
       image = getAdoptionImage(result[i].media.photos.photo);
     }
+    if (result[i].breeds.breed.length) {
+      breeds = '<p>';
+      for (let j=0; j<result[i].breeds.breed.length; j++) {
+        if (j === 0) {
+          breeds += `${result[i].breeds.breed[0]['$t']}`;
+        } else {
+          breeds += `, ${result[i].breeds.breed[j]['$t']}`;
+        }
+      }
+      breeds += '</p>';
+    } else {
+      breeds = `<p>${result[i].breeds.breed['$t']}`;
+    }
+    name = !result[i].name['$t']? 'No name listed' : result[i].name['$t'];
+    age = !result[i].age['$t']? 'No age listed' : result[i].age['$t'];
+    city = !result[i].contact.city['$t']? 'No city listed' : result[i].contact.city['$t'];
+    email = !result[i].contact.email['$t']? 'No email listed' : result[i].contact.city['$t'];
+    phone = !result[i].contact.phone['$t']? 'No phone listed' : result[i].contact.phone['$t'];
     html += (
       `<div class="row">
-        <div class="col-12">
+        <div class="col-12 adoption-div">
           <div class="col-4">
-            <h3>Name: ${result[i].name['$t']}</h3>
-            <p>Age: ${result[i].age['$t']}</p>
+            <div class="adoption-name">
+              <h3>Name: ${name}</h3>
+              <p>Age: ${age}</p>
+              ${breeds}
+            </div>
           </div>
           <div class="col-4 adoption-image-div">
             ${image}
           </div>
           <div class="col-4">
-            <p>City: ${result[i].contact.city['$t']}</p>
-            <p>Contact Email: ${result[i].contact.email['$t']}</p>
-            <p>Contact Phone: ${result[i].contact.phone['$t']}</p>
+            <div class="adoption-info">
+              <p>City: ${city}</p>
+              <p>Contact Email: ${email}</p>
+              <p>Contact Phone: ${phone}</p>
+            </div>
           </div>
         </div>
       </div>`);
@@ -55,9 +84,14 @@ function getAdoptionImage(array) {
 
 function showDogImages(result) {
   let html = '';
+  html += '<div class="col-12">';
   for (let i=0; i<result.length; i++) {
-    html += `<img class="dog-image col-3" border="8px" src=${result[i]}>`;
+    html += `
+      <div class="col-3 image-div">
+        <img class="dog-image" border="6px" src=${result[i]}>
+      </div>`;
   }
+  html += '</div>';
   $('.js-images-div').append(html);
 }
 
@@ -92,18 +126,21 @@ $('.js-show-images').click(function() {
   $('.js-images-div').removeAttr('hidden');
   $('.js-videos-div').attr('hidden', true);
   $('.js-adoption-div').attr('hidden', true);
+  $('.saved-favorites').attr('hidden', true);
 });
 
 $('.js-show-videos').click(function() {
   $('.js-images-div').attr('hidden', true);
   $('.js-videos-div').removeAttr('hidden');
   $('.js-adoption-div').attr('hidden', true);
+  $('.saved-favorites').attr('hidden', true);
 });
 
 $('.js-show-adoptions').click(function() {
   $('.js-images-div').attr('hidden', true);
   $('.js-videos-div').attr('hidden', true);
   $('.js-adoption-div').removeAttr('hidden');
+  $('.saved-favorites').attr('hidden', true);
 });
 
 $('.js-add-favorites').click(() => {
@@ -113,7 +150,7 @@ $('.js-add-favorites').click(() => {
     data: {breed: resultDog}
   })
     .done(function(done) {
-      $('p').append('Added To My Favorites');
+      $('.saved-favorites').html('<p>Added To My Favorites</p>').removeAttr('hidden', true);
     })
     .fail(function (fail) {
       console.log(fail);

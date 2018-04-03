@@ -106,29 +106,34 @@ button:hover {
   background-color: blue;
   border-color: blue;
   color: white;
+  cursor: pointer;
 }
 
-.dog-image-div {
-  width: 80%;
+.added-to-favorites-div {
+  height: 50px;
+}
+
+.image-div {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  padding-top: 10px
+  margin-top: 20px;
 }
 
 .dog-image {
-  width: 200px;
+  width: 80%;
   height: 200px;
-  margin: 10px;
-  border-color: white;
+  border-color: whitesmoke;
 }
 
 .dog-video-div {
   margin-left: 50px;
   margin-right: 50px;
+  padding-top: 20px;
   text-align: center;
   padding-bottom: 10px;
+}
+
+.dog-adoption-div {
+  padding-top: 20px;
 }
 
 iframe {
@@ -147,6 +152,25 @@ div[title^="youtube"] {
 
 .adoption-image {
   width: 70%;
+  max-height: 250px;
+}
+
+.adoption-name {
+  margin-top: 10%;
+}
+
+.adoption-info {
+  margin-top: 10%;
+}
+
+.saved-favorites {
+  margin-top: 20px;
+}
+
+.adoption-div {
+  border: 3px solid whitesmoke;
+  padding-top: 5px;
+  margin-bottom: 15px;
 }
 
 @media only screen and (max-width: 700px) {
