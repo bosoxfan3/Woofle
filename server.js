@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const {PORT, DATABASE_URL, JWT_SECRET_KEY} = require('./config');
 const app = express();
 
+require('dotenv').load();
 mongoose.Promise = global.Promise;
 
 const authRoutes = require('./server/auth/auth.route');
