@@ -1,6 +1,7 @@
 'use strict';
 
 const axios = require('axios');
+const APIKeys = require('../../api-keys');
 
 //API calls for DogCEO
 const DOG_CEO_BREED_URL = 'https://dog.ceo/api/breed/';
@@ -30,7 +31,7 @@ function getDataFromYouTubeApi(searchTerm) {
   const query = {
     q: `${searchTerm} dog breed`,
     part: 'snippet',
-    key: 'AIzaSyBQV-GhhCOVYxkTVYtSzufauAvpVxNr_4o',
+    key: APIKeys.youTubeAPIKey,
   };
   let queryString = '?';
   for (var key in query) {
@@ -60,7 +61,7 @@ function getDataFromPetFinderApi(breedName) {
     breedName = breedName[0].toUpperCase()+breedName.slice(1);
   }
   const query = {
-    key: 'cea5cdb599585cf4d921ba8f2873e41f',
+    key: APIKeys.petFinderAPIKey,
     animal: 'dog',
     breed: breedName,
     location: 94070,
