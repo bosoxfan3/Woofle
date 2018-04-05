@@ -38,6 +38,7 @@ function getDataFromYouTubeApi(searchTerm) {
     queryString += `${key}=${encodeURIComponent(query[key])}&`;
   }
   queryString = queryString.substr(0, queryString.length-1);
+  console.log(queryString);
   return axios.get(YOUTUBE_SEARCH_URL+queryString)
     .then((data) => {
       return data.data.items;
@@ -73,6 +74,7 @@ function getDataFromPetFinderApi(breedName) {
     queryString += `${key}=${encodeURIComponent(query[key])}&`;
   }
   queryString = queryString.substr(0, queryString.length-1);
+  console.log(queryString);
   return axios.get(PETFINDER_URL+queryString)
     .then((data) => {
       return data.data.petfinder.pets.pet;
