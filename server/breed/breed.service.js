@@ -31,7 +31,7 @@ function getDataFromYouTubeApi(searchTerm) {
   const query = {
     q: `${searchTerm} dog breed`,
     part: 'snippet',
-    key: process.env.youTubeAPIKey,
+    key: `${process.env.youTubeAPIKey}`,
   };
   let queryString = '?';
   for (var key in query) {
@@ -62,7 +62,7 @@ function getDataFromPetFinderApi(breedName) {
     breedName = breedName[0].toUpperCase()+breedName.slice(1);
   }
   const query = {
-    key: process.env.petFinderAPIKey,
+    key: `${process.env.petFinderAPIKey}`,
     animal: 'dog',
     breed: breedName,
     location: 94070,
