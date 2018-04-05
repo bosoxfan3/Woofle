@@ -10,4 +10,4 @@ global.TEST_DATABASE_URL ||
 
 exports.PORT = process.env.PORT || 8080;
 
-exports.JWT_SECRET_KEY = 'donottellanyone';
+exports.JWT_SECRET_KEY = process.env.JWT_SECRET_KEY || 'donottellanyone';
