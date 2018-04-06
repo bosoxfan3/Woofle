@@ -7,7 +7,84 @@ body {
   background-color: #4AB3F4;
 }
 
-.title-section {
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+  height: 70px;
+}
+
+.nav-title {
+  display: block;
+}
+
+.nav-title h1 {
+  display: inline-block;
+  font-family: 'Jua', sans-serif;
+  font-size: 40pt;
+}
+
+.logo {
+  border-radius: 50%;
+  border: 2px solid black;
+  width: 42px;
+  display: inline-block;
+  position: relative;
+  bottom: 15px;
+}
+
+nav {
+  float: right;
+  position: relative;
+  bottom: 55px;
+}
+
+.login-link, .signup-link, .demo-link {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.login-link a, .signup-link a, .demo-link a {
+  text-decoration: none;
+  color: black;
+  font-size: 16pt;
+  font-family: 'Cabin', sans-serif;
+  padding-bottom: 10px;
+}
+
+.login-link a:hover, .signup-link a:hover, .demo-link a:hover {
+  border-bottom: 3px solid black;
+}
+
+footer {
+  text-align: center;
+  color: white;
+  background-color: rgb(75, 75, 250);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
+footer p {
+  font-size: 12pt;
+  padding-top: 10px;
+  padding-right: 5px;
+}
+
+footer p, footer a {
+  display: inline-block;
+}
+
+footer a img {
+  width: 20px;
+  position: relative;
+  bottom: 1px;
+}
+
+/* .title-section {
   display: block;
   text-align: center;
   padding-bottom: 40px;
@@ -106,4 +183,4 @@ footer a img {
   .section {
     text-align: center !important;
   }
-}
+} */

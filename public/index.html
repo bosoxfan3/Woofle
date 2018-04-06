@@ -5,15 +5,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Woofle Login</title>
+  <title>Woofle</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="/index.css">
   <link rel="stylesheet" type="text/css" href="float-grid.css">
   <link href="https://fonts.googleapis.com/css?family=Cuprum:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
 </head>
 
 <body>
-  <div class="row">
+  <header role="banner">
+    <div class="nav-title">
+      <h1>Woofle</h1>
+      <img class="logo" src="https://i.pinimg.com/736x/5e/ae/d0/5eaed0f1541f54012ae46f554b5c45e6--dog-paw-prints-car-stickers.jpg">
+    </div>
+    <nav role="navigation">
+      <div class="login-link">
+        <a href="/auth/login">Login</a>
+      </div>
+      <div class="signup-link">
+        <a href="/auth/signup">Signup</a>
+      </div>
+      <div class="demo-link">
+        <a href="/" class="js-demo-link">Demo</a>
+      </div>
+    </nav>
+  </header>
+  <main role="main">
+    <h1>Woofle</h1>
+    <h2>Subtitle</h2>
+    <div class="row">
+      <div class="col-12">
+        <div class="col-4">
+          <h3>Title 1</h3>
+          <div>
+            <p>Title 1 info</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <h3>Title 2</h3>
+          <div>
+            <p>Title 2 info</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <h3>Title 3</h3>
+          <div>
+            <p>Title 3 info</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- <div class="row">
     <div class="col-12">
       <div class="title-section">
         <h1 class="title">Woofle</h1>
@@ -48,13 +94,13 @@
         <a href="/" class="js-demo-link">USE DEMO ACCOUNT</a>
       </div>
     </div>
-  </div>
-  <footer>
+  </div> -->
+  <footer role="contentinfo">
     <p>Created by Daniel Acquesta</p>
     <a href="https://github.com/bosoxfan3/Woofle"><img src="https://diversity.github.com/assets/svg/mark-github.svg"></a>
   </footer>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="./auth/loginsignup.js"></script>
 </body>
-
 </html>
